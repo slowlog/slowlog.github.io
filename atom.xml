@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://slowlog.github.io</id>
     <title>slowlog</title>
-    <updated>2019-06-01T08:36:11.407Z</updated>
+    <updated>2019-06-01T08:37:31.611Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://slowlog.github.io"/>
     <link rel="self" href="https://slowlog.github.io/atom.xml"/>
@@ -581,118 +581,11 @@ find $data_dir -mtime +7 -name 'data_[1-9].sql' -exec rm -rf {} \;
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Docker 学习笔记]]></title>
-        <id>https://slowlog.github.io/post/docker-xue-xi-bi-ji</id>
-        <link href="https://slowlog.github.io/post/docker-xue-xi-bi-ji">
-        </link>
-        <updated>2019-06-01T08:27:35.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="初识-docker">初识 docker</h3>
-<p>docker 是一项可以将应用及其依赖打包成一个容器进行分发、从而保证环境一致性的技术，采用 Go 开发，于 2013 年初由 Docker.Inc 发布。Docker 的出现使软件开发及部署流程变得更为简洁与规范。</p>
-<p><img src="https://user-images.githubusercontent.com/16852041/28628085-32160114-7256-11e7-9c6a-fcaa267cf638.jpg" alt="r351508499tj"></p>
-<h3 id="docker-特点">docker 特点</h3>
-<p><strong>轻型</strong> Docker 容器间共享服务器的系统库、系统工具、运行环境及代码，这样便能够保证运行一致性。</p>
-<p><strong>开源</strong> Docker 容器基于一系列开源标准，运行于所有的主流 Linux 操作系统。</p>
-<p><strong>安全</strong> 容器间的应用相互隔离，底层基础设施为其提供了一层额外保护。</p>
-<h3 id="部署流程">部署流程</h3>
-<p><img src="https://user-images.githubusercontent.com/16852041/28628145-62dad7c0-7256-11e7-8c4a-bb328bb836cc.png" alt="b5bbc6c76f197902"></p>
-<h3 id="docker-的安装">docker 的安装</h3>
-<pre><code>1. 安装必要的一些系统工具
-sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-
-2. 添加软件源信息
-sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-
-3. 安装 docker-ce
-sudo yum makecache fast
-sudo yum -y install docker-ce
-
-4. 启动 docker 服务
-sudo service docker start
-
-5. docker 加速器
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
-{
-  &quot;registry-mirrors&quot;: [&quot;https://6ty2vtn5.mirror.aliyuncs.com&quot;]
-}
-EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-</code></pre>
-<h3 id="docker-常用命令">docker 常用命令</h3>
-<pre><code>#从 registry 拉取 image
-docker pull  
-
-#推送 image 到 registry
-docker push  
-
-#开启/停止/重启 container
-docker start/stop/restart  
-
-#默认显示正在运行中的 container
-docker ps  
-
-#显示最后一次创建的 container, 包括未运行的  
-docker ps -l 
-
-#显示所有的 container, 包括未运行的
-docker ps -a 
-
-#删除一个或多个 container
-docker rm containerId  
-
-#删除一个或多个 image
-docker rmi imageId     
-
-#进入container bash
-docker exec -it containerId bash 
-
-#列出所有的 images
-docker images -a  
-
-#创建网关
-docker network create &lt;name&gt;
-
-#列出所有网关
-docker network ls
-
-#创建 container 并将 container 的端口映射到宿主机的端口
-docker run -i -t -p hostport:containerport image
-
-#寻找path路径下名为的Dockerfile的配置文件，使用此配置生成新的 image
-docker build
-
-# 查看 docker 的版本号，包括客户端、服务端、依赖的 Go 等
-docker version 
-
-# 将容器做成镜像
-docker commit -m  &quot;提示信息&quot;   -a  &quot;作者&quot;   容器ID  镜像名称
-
-# 移除已退出的容器并删除 id 为&lt;None&gt;的 image
-docker ps -a | grep &quot;Exited&quot; | awk '{print $1 }'|xargs docker rm
-docker rmi $(docker images -a | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)
-
-</code></pre>
-<blockquote>
-<p>注: 容器内可以使用 <code>ping 容器名</code>  来查看是否在同一局域网内, 当挂载目录出现权限问题时, 应检查宿主机与容器的用户与组的id是否一致</p>
-</blockquote>
-<h3 id="dockerfile-设置时区">dockerfile 设置时区</h3>
-<pre><code># 方式一
-ENV TZ=Asia/Shanghai
-RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone
-
-# 方式二
-RUN apk --update add tzdata \
-&amp;&amp; ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Nginx 学习笔记]]></title>
         <id>https://slowlog.github.io/post/nginx-xue-xi-bi-ji</id>
         <link href="https://slowlog.github.io/post/nginx-xue-xi-bi-ji">
         </link>
-        <updated>2019-06-01T08:16:09.000Z</updated>
+        <updated>2018-09-15T08:16:09.000Z</updated>
         <content type="html"><![CDATA[<h3 id="nginx-特性">Nginx 特性</h3>
 <ul>
 <li>IO 多路复用epoll</li>
@@ -1137,6 +1030,113 @@ http{
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Docker 学习笔记]]></title>
+        <id>https://slowlog.github.io/post/docker-xue-xi-bi-ji</id>
+        <link href="https://slowlog.github.io/post/docker-xue-xi-bi-ji">
+        </link>
+        <updated>2017-11-01T08:27:35.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="初识-docker">初识 docker</h3>
+<p>docker 是一项可以将应用及其依赖打包成一个容器进行分发、从而保证环境一致性的技术，采用 Go 开发，于 2013 年初由 Docker.Inc 发布。Docker 的出现使软件开发及部署流程变得更为简洁与规范。</p>
+<p><img src="https://user-images.githubusercontent.com/16852041/28628085-32160114-7256-11e7-9c6a-fcaa267cf638.jpg" alt="r351508499tj"></p>
+<h3 id="docker-特点">docker 特点</h3>
+<p><strong>轻型</strong> Docker 容器间共享服务器的系统库、系统工具、运行环境及代码，这样便能够保证运行一致性。</p>
+<p><strong>开源</strong> Docker 容器基于一系列开源标准，运行于所有的主流 Linux 操作系统。</p>
+<p><strong>安全</strong> 容器间的应用相互隔离，底层基础设施为其提供了一层额外保护。</p>
+<h3 id="部署流程">部署流程</h3>
+<p><img src="https://user-images.githubusercontent.com/16852041/28628145-62dad7c0-7256-11e7-8c4a-bb328bb836cc.png" alt="b5bbc6c76f197902"></p>
+<h3 id="docker-的安装">docker 的安装</h3>
+<pre><code>1. 安装必要的一些系统工具
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+
+2. 添加软件源信息
+sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+3. 安装 docker-ce
+sudo yum makecache fast
+sudo yum -y install docker-ce
+
+4. 启动 docker 服务
+sudo service docker start
+
+5. docker 加速器
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  &quot;registry-mirrors&quot;: [&quot;https://6ty2vtn5.mirror.aliyuncs.com&quot;]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+</code></pre>
+<h3 id="docker-常用命令">docker 常用命令</h3>
+<pre><code>#从 registry 拉取 image
+docker pull  
+
+#推送 image 到 registry
+docker push  
+
+#开启/停止/重启 container
+docker start/stop/restart  
+
+#默认显示正在运行中的 container
+docker ps  
+
+#显示最后一次创建的 container, 包括未运行的  
+docker ps -l 
+
+#显示所有的 container, 包括未运行的
+docker ps -a 
+
+#删除一个或多个 container
+docker rm containerId  
+
+#删除一个或多个 image
+docker rmi imageId     
+
+#进入container bash
+docker exec -it containerId bash 
+
+#列出所有的 images
+docker images -a  
+
+#创建网关
+docker network create &lt;name&gt;
+
+#列出所有网关
+docker network ls
+
+#创建 container 并将 container 的端口映射到宿主机的端口
+docker run -i -t -p hostport:containerport image
+
+#寻找path路径下名为的Dockerfile的配置文件，使用此配置生成新的 image
+docker build
+
+# 查看 docker 的版本号，包括客户端、服务端、依赖的 Go 等
+docker version 
+
+# 将容器做成镜像
+docker commit -m  &quot;提示信息&quot;   -a  &quot;作者&quot;   容器ID  镜像名称
+
+# 移除已退出的容器并删除 id 为&lt;None&gt;的 image
+docker ps -a | grep &quot;Exited&quot; | awk '{print $1 }'|xargs docker rm
+docker rmi $(docker images -a | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)
+
+</code></pre>
+<blockquote>
+<p>注: 容器内可以使用 <code>ping 容器名</code>  来查看是否在同一局域网内, 当挂载目录出现权限问题时, 应检查宿主机与容器的用户与组的id是否一致</p>
+</blockquote>
+<h3 id="dockerfile-设置时区">dockerfile 设置时区</h3>
+<pre><code># 方式一
+ENV TZ=Asia/Shanghai
+RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone
+
+# 方式二
+RUN apk --update add tzdata \
+&amp;&amp; ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[个人书签&收藏]]></title>
         <id>https://slowlog.github.io/post/ge-ren-shu-qian-andshou-cang</id>
         <link href="https://slowlog.github.io/post/ge-ren-shu-qian-andshou-cang">
@@ -1160,7 +1160,7 @@ http{
         <id>https://slowlog.github.io/post/java-xue-xi-bi-ji</id>
         <link href="https://slowlog.github.io/post/java-xue-xi-bi-ji">
         </link>
-        <updated>2017-06-01T08:02:10.000Z</updated>
+        <updated>2017-06-15T08:02:10.000Z</updated>
         <content type="html"><![CDATA[<h3 id="java-简述">Java 简述</h3>
 <ul>
 <li>JRE = JVM + JavaSE标准类库</li>
@@ -1541,7 +1541,7 @@ Java 中的方法内部类
         <id>https://slowlog.github.io/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji</id>
         <link href="https://slowlog.github.io/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji">
         </link>
-        <updated>2016-06-01T08:24:45.000Z</updated>
+        <updated>2016-06-05T08:24:45.000Z</updated>
         <content type="html"><![CDATA[<h2 id="计算机的三大原则">计算机的三大原则</h2>
 <h3 id="计算机的输入-运算-输出">计算机的输入、运算、输出</h3>
 <p>从硬件上来讲，可以说计算机是执行输入、运算、输出三种操作的机器。计算机的硬件由大量的IC（集成电路）组成，每块IC上都有大量的引脚，这些引脚有些用于输入，有些用于输出。IC会在其内部对外部输入的信息进行运算，并把运算结果输出到外部。运算这个词听起来也许有些难以理解，但实际上就是计算的意思。举例来说，1+2=3，计算机所做的事就是“输入”数据1和2，然后对它们进行加法“运算”，最后“输出”计算结果3。</p>
