@@ -774,3 +774,8 @@ td {
 .hljs-strong {
   font-weight: bold;
 }
+
+      .post-detail .post .post-content p {
+        font-size: 14px;
+      }
+    
