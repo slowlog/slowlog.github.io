@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://slowlog.github.io</id>
     <title>slowlog</title>
-    <updated>2019-06-01T10:18:20.182Z</updated>
+    <updated>2019-06-01T10:20:55.905Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://slowlog.github.io"/>
     <link rel="self" href="https://slowlog.github.io/atom.xml"/>
@@ -1541,7 +1541,10 @@ Java 中的方法内部类
         <link href="https://slowlog.github.io/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji">
         </link>
         <updated>2016-06-05T08:24:45.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="计算机的三大原则">计算机的三大原则</h2>
+        <summary type="html"><![CDATA[<p>从硬件上来讲，可以说计算机是执行输入、运算、输出三种操作的机器。计算机的硬件由大量的IC（集成电路）组成，每块IC上都有大量的引脚，这些引脚有些用于输入，有些用于输出。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>从硬件上来讲，可以说计算机是执行输入、运算、输出三种操作的机器。计算机的硬件由大量的IC（集成电路）组成，每块IC上都有大量的引脚，这些引脚有些用于输入，有些用于输出。</p>
+<!-- more -->
 <h3 id="计算机的输入-运算-输出">计算机的输入、运算、输出</h3>
 <p>从硬件上来讲，可以说计算机是执行输入、运算、输出三种操作的机器。计算机的硬件由大量的IC（集成电路）组成，每块IC上都有大量的引脚，这些引脚有些用于输入，有些用于输出。IC会在其内部对外部输入的信息进行运算，并把运算结果输出到外部。运算这个词听起来也许有些难以理解，但实际上就是计算的意思。举例来说，1+2=3，计算机所做的事就是“输入”数据1和2，然后对它们进行加法“运算”，最后“输出”计算结果3。</p>
 <p>其实计算机就是一台简单的机器，它也只能做这三件事。输入、运算、输出必须成套出现，缺一不可。为什呢？</p>
