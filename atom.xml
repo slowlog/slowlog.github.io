@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://slowlog.github.io</id>
     <title>slowlog</title>
-    <updated>2019-06-01T10:20:55.905Z</updated>
+    <updated>2019-06-01T10:26:44.913Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://slowlog.github.io"/>
     <link rel="self" href="https://slowlog.github.io/atom.xml"/>
@@ -586,7 +586,13 @@ find $data_dir -mtime +7 -name 'data_[1-9].sql' -exec rm -rf {} \;
         <link href="https://slowlog.github.io/post/nginx-xue-xi-bi-ji">
         </link>
         <updated>2018-09-15T08:16:09.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="nginx-特性">Nginx 特性</h3>
+        <summary type="html"><![CDATA[<p>Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。
+Nginx是免费的开源软件，该软件由伊戈尔·赛索耶夫创建并于2004年首次公开发布。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。
+Nginx是免费的开源软件，该软件由伊戈尔·赛索耶夫创建并于2004年首次公开发布。</p>
+<!-- more -->
+<h3 id="nginx-特性">Nginx 特性</h3>
 <ul>
 <li>IO 多路复用epoll</li>
 <li>轻量级，功能模块少，代码模块化</li>
@@ -1035,11 +1041,15 @@ http{
         <link href="https://slowlog.github.io/post/docker-xue-xi-bi-ji">
         </link>
         <updated>2017-11-01T08:27:35.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="初识-docker">初识 docker</h3>
-<p>docker 是一项可以将应用及其依赖打包成一个容器进行分发、从而保证环境一致性的技术，采用 Go 开发，于 2013 年初由 Docker.Inc 发布。Docker 的出现使软件开发及部署流程变得更为简洁与规范。</p>
+        <summary type="html"><![CDATA[<p>docker 是一项可以将应用及其依赖打包成一个容器进行分发、从而保证环境一致性的技术，采用 Go 开发，于 2013 年初由 Docker.Inc 发布。docker 的出现使软件开发及部署流程变得更为简洁与规范。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>docker 是一项可以将应用及其依赖打包成一个容器进行分发、从而保证环境一致性的技术，采用 Go 开发，于 2013 年初由 Docker.Inc 发布。docker 的出现使软件开发及部署流程变得更为简洁与规范。</p>
+<!-- more -->
+<h3 id="初识-docker">初识 docker</h3>
+<p>docker 是一项可以将应用及其依赖打包成一个容器进行分发、从而保证环境一致性的技术，采用 Go 开发，于 2013 年初由 docker.Inc 发布。docker 的出现使软件开发及部署流程变得更为简洁与规范。</p>
 <h3 id="docker-特点">docker 特点</h3>
-<p><strong>轻型</strong> Docker 容器间共享服务器的系统库、系统工具、运行环境及代码，这样便能够保证运行一致性。</p>
-<p><strong>开源</strong> Docker 容器基于一系列开源标准，运行于所有的主流 Linux 操作系统。</p>
+<p><strong>轻型</strong> docker 容器间共享服务器的系统库、系统工具、运行环境及代码，这样便能够保证运行一致性。</p>
+<p><strong>开源</strong> docker 容器基于一系列开源标准，运行于所有的主流 Linux 操作系统。</p>
 <p><strong>安全</strong> 容器间的应用相互隔离，底层基础设施为其提供了一层额外保护。</p>
 <h3 id="部署流程">部署流程</h3>
 <p><img src="https://user-images.githubusercontent.com/16852041/28628145-62dad7c0-7256-11e7-8c4a-bb328bb836cc.png" alt="b5bbc6c76f197902"></p>
