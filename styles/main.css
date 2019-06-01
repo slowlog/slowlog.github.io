@@ -779,7 +779,14 @@ td {
         font-size: 14px;
       }
     
-      .post-container .post .post-title{
+      .tags-container .tag a:hover{
+     color:#44a340; 
+}
+.archives-container .year{
+   color:#44a340; 
+}
+
+.post-container .post .post-title{
    font-size:26px;
 }
 .post-container .post a:hover{
