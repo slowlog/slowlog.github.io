@@ -7,83 +7,90 @@
 <meta name="description" content="slow life slow log.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://slowlog.github.io/favicon.ico?v=1559379999479">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="https://slowlog.github.io/favicon.ico?v=1559380050178">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://slowlog.github.io/styles/main.css">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://slowlog.github.io">slowlog</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://slowlog.github.io">
+        <img src="https://slowlog.github.io/images/avatar.png?v=1559380050178" class="site-logo">
+        <h1 class="site-title">slowlog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
         
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
+          <a href="/" class="site-nav">
+            首页
+          </a>
         
-          <li>
-            
-              <a href="/archives" class="menu">
-                归档
-              </a>
-            
-          </li>
+      
         
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
         
-      </ul>
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
     </div>
   </div>
-</nav>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      slow life slow log.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://slowlog.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>Nginx 学习笔记</h1>
-            <p class="article-meta">
-              2018-09-15
-              
-                <a href="https://slowlog.github.io/tag/97GKPrquG" class="badge success">
-                  Linux
-                </a>
-              
-            </p>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Nginx 学习笔记</h2>
+            <div class="post-date">2018-09-15</div>
             
-              <img src="https://slowlog.github.io/post-images/nginx-xue-xi-bi-ji.jpeg" alt="Nginx 学习笔记">
+              <div class="feature-container" style="background-image: url('https://slowlog.github.io/post-images/nginx-xue-xi-bi-ji.jpeg')">
+              </div>
             
             <div class="post-content">
               <h3 id="nginx-特性">Nginx 特性</h3>
@@ -529,125 +536,32 @@ http{
 <p><code>https://github.com/loveshell/ngx_lua_waf</code></p>
 
             </div>
-          </article>
-        </div>
-        <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
+            
+              <div class="tag-container">
+                
+                  <a href="https://slowlog.github.io/tag/97GKPrquG" class="tag">
+                    Linux
+                  </a>
+                
               </div>
-              <a href="https://slowlog.github.io/post/docker-xue-xi-bi-ji">
-                <h3 class="post-title">
-                  Docker 学习笔记
-                </h3>
-              </a>
-            </div>
-          
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://slowlog.github.io/post/docker-xue-xi-bi-ji">
+                  <h3 class="post-title">
+                    Docker 学习笔记
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
         </div>
-        
       </div>
-
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://slowlog.github.io/images/avatar.png?v=1559379999479" class="no-responsive avatar">
-    <div class="text-muted">slow life slow log.</div>
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://slowlog.github.io/post/mysql-xue-xi-bi-ji">MySQL 学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://slowlog.github.io/post/nginx-xue-xi-bi-ji">Nginx 学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://slowlog.github.io/post/docker-xue-xi-bi-ji">Docker 学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://slowlog.github.io/post/ge-ren-shu-qian-andshou-cang">个人书签&amp;收藏</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://slowlog.github.io/post/java-xue-xi-bi-ji">Java 学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://slowlog.github.io/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji">《计算机是怎样跑起来的》读书笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://slowlog.github.io/post/linux-chang-yong-ming-ling">Linux 常用命令</a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://slowlog.github.io/tag/dL0iL1yYb" class="badge warning">
-          MySql
-        </a>
-      
-        <a href="https://slowlog.github.io/tag/97GKPrquG" class="badge secondary">
-          Linux
-        </a>
-      
-        <a href="https://slowlog.github.io/tag/CqawtMI22" class="badge ">
-          Other
-        </a>
-      
-        <a href="https://slowlog.github.io/tag/urLqEf71R" class="badge ">
-          Java
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://slowlog.github.io/atom.xml" target="_blank">RSS</a>
-  </div>
-</div>
-
-
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -657,6 +571,13 @@ http{
 AOS.init();
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 
