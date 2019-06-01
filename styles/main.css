@@ -779,7 +779,11 @@ td {
         font-size: 14px;
       }
     
-      .tags-container .tag:hover{
+      .tags-container .tag{
+     border-radius: 4px;
+     font-size: 14px;
+}
+.tags-container .tag:hover{
      color:#44a340; 
 }
 .archives-container .post a:hover{
