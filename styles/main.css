@@ -782,7 +782,13 @@ td {
       .post-container .post .post-title{
    font-size:26px;
 }
-
+.post-container .post a:hover{
+  color:#44a340;
+}
+.post-detail .post .post-title{
+    color: #ff001f;
+    font-size: 26px;
+}
 .site-header .site-description{
   color:#999;
 }
@@ -809,11 +815,14 @@ td {
   -webkit-background-size: 30px, 30px;
    background-size: 30px, 30px;
 }
-
+.post-detail .post .post-content pre code{
+   font-size:14px;
+}
 .post-content pre code {
   padding: 0;
   font-size: inherit;
   color: inherit;
+  font-size:14px;
   white-space: pre-wrap;
   background-color: transparent;
   border-radius: 4px;
