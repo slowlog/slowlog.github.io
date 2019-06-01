@@ -779,23 +779,18 @@ td {
         font-size: 14px;
       }
     
+      a:hover {
+        color: #44a340;
+      }
+    
       .tags-container .tag{
    border-radius: 4px;font-size: 14px;
-}
-.tags-container .tag:hover{
-   color:#44a340; 
-}
-.archives-container .post a:hover{
-   color:#44a340; 
 }
 .archives-container .year{
    color:#44a340; 
 }
 .post-container .post .post-title{
    font-size:26px;
-}
-.post-container .post a:hover{
-  color:#44a340;
 }
 .post-detail .post .post-title{
     color: #ff001f;
