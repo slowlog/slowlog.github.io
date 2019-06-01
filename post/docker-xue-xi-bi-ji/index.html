@@ -1,0 +1,214 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Docker 学习笔记 | slowlog</title>
+<link rel="shortcut icon" href="https://slowlog.github.io/favicon.ico?v=1559377668621">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://slowlog.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://slowlog.github.io">
+  <img class="avatar" src="https://slowlog.github.io/images/avatar.png?v=1559377668621" alt="">
+  </a>
+  <h1 class="site-title">
+    slowlog
+  </h1>
+  <p class="site-description">
+    slow life slow log.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Docker 学习笔记
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-06-01 ·
+              </time>
+              
+                <a href="https://slowlog.github.io/tag/97GKPrquG" class="post-tag">
+                  # Linux
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h3 id="初识-docker">初识 docker</h3>
+<p>docker 是一项可以将应用及其依赖打包成一个容器进行分发、从而保证环境一致性的技术，采用 Go 开发，于 2013 年初由 Docker.Inc 发布。Docker 的出现使软件开发及部署流程变得更为简洁与规范。</p>
+<p><img src="https://user-images.githubusercontent.com/16852041/28628085-32160114-7256-11e7-9c6a-fcaa267cf638.jpg" alt="r351508499tj"></p>
+<h3 id="docker-特点">docker 特点</h3>
+<p><strong>轻型</strong> Docker 容器间共享服务器的系统库、系统工具、运行环境及代码，这样便能够保证运行一致性。</p>
+<p><strong>开源</strong> Docker 容器基于一系列开源标准，运行于所有的主流 Linux 操作系统。</p>
+<p><strong>安全</strong> 容器间的应用相互隔离，底层基础设施为其提供了一层额外保护。</p>
+<h3 id="部署流程">部署流程</h3>
+<p><img src="https://user-images.githubusercontent.com/16852041/28628145-62dad7c0-7256-11e7-8c4a-bb328bb836cc.png" alt="b5bbc6c76f197902"></p>
+<h3 id="docker-的安装">docker 的安装</h3>
+<pre><code>1. 安装必要的一些系统工具
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+
+2. 添加软件源信息
+sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+3. 安装 docker-ce
+sudo yum makecache fast
+sudo yum -y install docker-ce
+
+4. 启动 docker 服务
+sudo service docker start
+
+5. docker 加速器
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  &quot;registry-mirrors&quot;: [&quot;https://6ty2vtn5.mirror.aliyuncs.com&quot;]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+</code></pre>
+<h3 id="docker-常用命令">docker 常用命令</h3>
+<pre><code>#从 registry 拉取 image
+docker pull  
+
+#推送 image 到 registry
+docker push  
+
+#开启/停止/重启 container
+docker start/stop/restart  
+
+#默认显示正在运行中的 container
+docker ps  
+
+#显示最后一次创建的 container, 包括未运行的  
+docker ps -l 
+
+#显示所有的 container, 包括未运行的
+docker ps -a 
+
+#删除一个或多个 container
+docker rm containerId  
+
+#删除一个或多个 image
+docker rmi imageId     
+
+#进入container bash
+docker exec -it containerId bash 
+
+#列出所有的 images
+docker images -a  
+
+#创建网关
+docker network create &lt;name&gt;
+
+#列出所有网关
+docker network ls
+
+#创建 container 并将 container 的端口映射到宿主机的端口
+docker run -i -t -p hostport:containerport image
+
+#寻找path路径下名为的Dockerfile的配置文件，使用此配置生成新的 image
+docker build
+
+# 查看 docker 的版本号，包括客户端、服务端、依赖的 Go 等
+docker version 
+
+# 将容器做成镜像
+docker commit -m  &quot;提示信息&quot;   -a  &quot;作者&quot;   容器ID  镜像名称
+
+# 移除已退出的容器并删除 id 为&lt;None&gt;的 image
+docker ps -a | grep &quot;Exited&quot; | awk '{print $1 }'|xargs docker rm
+docker rmi $(docker images -a | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)
+
+</code></pre>
+<blockquote>
+<p>注: 容器内可以使用 <code>ping 容器名</code>  来查看是否在同一局域网内, 当挂载目录出现权限问题时, 应检查宿主机与容器的用户与组的id是否一致</p>
+</blockquote>
+<h3 id="dockerfile-设置时区">dockerfile 设置时区</h3>
+<pre><code># 方式一
+ENV TZ=Asia/Shanghai
+RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone
+
+# 方式二
+RUN apk --update add tzdata \
+&amp;&amp; ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://slowlog.github.io/post/ge-ren-shu-qian-andshou-cang">
+              <h3 class="post-title">
+                个人书签&amp;收藏
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://slowlog.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

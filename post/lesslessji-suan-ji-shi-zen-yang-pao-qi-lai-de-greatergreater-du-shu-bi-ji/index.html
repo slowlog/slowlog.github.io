@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>《计算机是怎样跑起来的》读书笔记 | slowlog</title>
+<link rel="shortcut icon" href="https://slowlog.github.io/favicon.ico?v=1559377668621">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://slowlog.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://slowlog.github.io">
+  <img class="avatar" src="https://slowlog.github.io/images/avatar.png?v=1559377668621" alt="">
+  </a>
+  <h1 class="site-title">
+    slowlog
+  </h1>
+  <p class="site-description">
+    slow life slow log.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              《计算机是怎样跑起来的》读书笔记
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-06-01 ·
+              </time>
+              
+                <a href="https://slowlog.github.io/tag/CqawtMI22" class="post-tag">
+                  # Other
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h2 id="计算机的三大原则">计算机的三大原则</h2>
+<h3 id="计算机的输入-运算-输出">计算机的输入、运算、输出</h3>
+<p>从硬件上来讲，可以说计算机是执行输入、运算、输出三种操作的机器。计算机的硬件由大量的IC（集成电路）组成，每块IC上都有大量的引脚，这些引脚有些用于输入，有些用于输出。IC会在其内部对外部输入的信息进行运算，并把运算结果输出到外部。运算这个词听起来也许有些难以理解，但实际上就是计算的意思。举例来说，1+2=3，计算机所做的事就是“输入”数据1和2，然后对它们进行加法“运算”，最后“输出”计算结果3。</p>
+<p>其实计算机就是一台简单的机器，它也只能做这三件事。输入、运算、输出必须成套出现，缺一不可。为什呢？</p>
+<ul>
+<li>第一，现在的计算机还没有发展到能通过自发的思考创造出信息的地步，因此不输入信息计算计就不能工作。</li>
+<li>第二，计算机不能不执行任何运算，如果只是使输入的信息绕过运算环节直接输出，那么这就是电线而不是计算机了，如果不进行运算，计算机也就没有什么存在的意义了。</li>
+<li>第三，如果不输出结果，那么这也不是计算机而只是堆积信息的垃圾箱了，所以输出也必不可少。</li>
+</ul>
+<h3 id="程序是指令和数据的集合">程序是指令和数据的集合</h3>
+<p>什么是程序？所谓程序，其实非常简单，只不过是指令和数据的集合。无论程序多么高深多么复杂，其内容也都是指令和数据。
+那什么是指令？所谓指令，就是控制计算进行输入、运算、输出的命令。</p>
+<p>程序中的数据分为两类，一类是作为指令执行对象的输入数据， 一类是从指令的执行结果得到的输出数据。一般在编写程序的过程中，都要先编译再执行，所谓编译就是把用编译型语言如C、Java、C#等编写的源文件转换成字节码文件，也可以说是机器语言或原生代码。因为计算机只认识二进制，只认识0和1，由一大堆的二进制代码组成的程序就叫机器码、机器语言。</p>
+<pre><code>        1 bit  = 1 二进制数据
+        1 byte = 8 bit
+        1 字母 = 1 byte = 8 bit
+        1 汉字 = 2 byte = 16 bit
+</code></pre>
+<h3 id="计算机的处理方式">计算机的处理方式</h3>
+<p>计算机有计算机的处理方法，这是三大原则中的最后一点。计算机本身只不过是为我们处理特定工作的机器。如果计算机能自己干活的话，那么我们的生活太美好了，我一定买很多台。不过遗憾的是目前还没有这样的计算机，现在的计算机终究是受人支配的工具。</p>
+<p>对计算机来说什么都是数字。用数字表示所有信息，这就是一个很具代表性的计算机式的处理方式，这一点正是和人类的思维习惯不一样的地方。例如，人们会用”蓝色“”红色“之类的词语描述有关的颜色信息。可是换做计算机的话，就不得不用数字表示颜色信息。</p>
+<p>例如：用”0,0,255“表示蓝色，用”255,0,0“表示红色，用”255,0,255“表示由蓝色和红色混合而成的紫色。不光是颜色，计算机对文字的处理也是如此。计算机内部会先把文字转换成相应的数字再做处理，这样的数字叫做”字符编码“。总之，计算机会什么都用数字来表示。</p>
+<h3 id="程序的流程分为三种">程序的流程分为三种</h3>
+<p><img src="https://user-images.githubusercontent.com/16852041/38287659-66b0a2f8-37fe-11e8-9f11-28f62e538040.png" alt="default">
+<img src="https://user-images.githubusercontent.com/16852041/38287664-6dbb0d54-37fe-11e8-9425-73e2dddc6d04.png" alt="default">
+<img src="https://user-images.githubusercontent.com/16852041/38303396-89f2e2f0-3838-11e8-9d7e-012183a6736f.png" alt="wx20180404-184523"></p>
+<ul>
+<li>顺序执行是按照指令记录在内存中的先后顺序依次执行的一种流程。</li>
+<li>而循环则是在程序的特定范围内反复执行若干次的一种流程。</li>
+<li>条件分支是根据若干个条件的成立与否，在程序的流程中产生若干个分支的一种流程。</li>
+</ul>
+<p>无论规模多么大多么复杂的程序，都是通过把以上三种流程组合起来实现的。</p>
+<h3 id="面向对象编程抽象">面向对象编程&amp;抽象</h3>
+<p>面向对象编程是一种基于以下思路的程序设计方法:将关注点置于对象(Object)本身，对象的构成要素包含对象的行为及操作 B，以此为基础进行编程。这种方法使程序易于复用，软件的生产效率因而得以提升。其中所使用的主要编程技巧有继承、封装、多态三种。</p>
+<ul>
+<li>观点1：面向对象编程通过把组件拼装到一起构建程序</li>
+<li>观点2：面向对象编程能够提升程序的开发效率和可维护性</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/16852041/38287879-d102061e-37ff-11e8-8b74-049d11e37756.png" alt="wx20180404-120028"></p>
+<ul>
+<li>观点3：面向对象编程就是在为现实世界建模</li>
+</ul>
+<p>程序可以在计算机上实现现实世界中的业务和娱乐活动。计算机 本身并没有特定的用途，而是程序赋予了计算机各种各样的用途。在面向对象编程中，可以通过“这个是由什么样的对象构成的呢?”这样的观点来分析即将转换成程序的现实世界。这种分析过程叫作“建模”。 可以说建模对于开发者而言，反映的是他们的世界观，也就是在他们的眼中现实世界看起来是什么样子的。
+<img src="https://user-images.githubusercontent.com/16852041/38287893-e43ebe84-37ff-11e8-9409-5bc5bed1026d.png" alt="wx20180404-114525"></p>
+<ul>
+<li>观点4：面向对象编程可以借助 UML 设计程序
+<img src="https://user-images.githubusercontent.com/16852041/38287897-ea38aca0-37ff-11e8-8ad1-df612f347cce.png" alt="wx20180404-115909"></li>
+</ul>
+<p>面向对象软件开发的一个基本方法就是抽象，到底什么是抽象呢?
+抽象是从众多的事物中抽取出共同的、本质性的特征，而舍弃其非本质的特征。
+例如苹果、香蕉、生梨、葡萄、桃子等，它们共同的特性就是水果。
+得出水果概念的过程，就是一个抽象的过程。
+要抽象，就必须进行比较，没有比较就无法找到共同的部分。
+共同特征是指那些能把一类事物与他类事物区分开来的特征，
+这些具有区分作用的特征又称本质特征。</p>
+<p>因此抽取事物的共同特征就是抽取事物的本质特征，舍弃不同特征。
+所以抽象的过程也是一个裁剪的过程，不同的、非本质性的特征全部裁剪掉了。
+所谓的共同特征，是相对的，是指从某一个刻面看是共同的。
+比如，对于汽车和大米，从买卖的角度看都是商品，都有价格，
+这是他们的共同的特征，而从其他方面来比较是，他们则是不同的。</p>
+<p>所以在抽象时，同与不同，决定于从什么角度上来抽象。
+抽象的角度取决于分析问题的目的。 在软件开发过程中，
+识别稳定的需求、识别核心的需求、识别概念性的需求、
+设计系统的架构、定义系统中构件之间的接口关系等等都是抽象的过程，
+都是反应系统的本质特征的过程。
+抽象的，才是稳定的，才是永恒的。 抽象的反义词是具体。</p>
+<p>开发人员往往会说：“你讲的太抽象了，能不能讲的具体一点?”在开发语言中，
+有抽象类，有具体类，具体类可以继承自抽象类，可以实例化。
+抽象类可以派生出众多的不同的具体类。所谓：“一生二，二生三，三生万物”。
+系统的稳定体现在抽象类，系统的变化体现在具体类。抽象类的层次要高于具体类。
+系统因抽象而稳定，因抽象而生动。</p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://slowlog.github.io/post/nginx-xue-xi-bi-ji">
+              <h3 class="post-title">
+                Nginx 学习笔记
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://slowlog.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
