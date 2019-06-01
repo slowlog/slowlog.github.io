@@ -783,4 +783,24 @@ td {
   width:650px;
   margin: 0 auto;
 }
+.post-content h3{
+   color:#159957;
+}
+.post-content pre{
+   background: url(https://user-images.githubusercontent.com/16852041/58746630-d7ac5d80-8492-11e9-907c-01717eda3c33.png) #F6F6F6;
+  -moz-background-size: 30px, 30px;
+  -o-background-size: 30px, 30px;
+  -webkit-background-size: 30px, 30px;
+   background-size: 30px, 30px;
+}
+
+.post-content pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 4px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
     
