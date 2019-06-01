@@ -1,255 +1,249 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>slowlog</title>
-<meta name="description" content="slow life slow log.">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<link rel="shortcut icon" href="https://slowlog.github.io/favicon.ico?v=1559380147223">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://slowlog.github.io/favicon.ico?v=1559380050178">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://slowlog.github.io/styles/main.css">
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
 
   </head>
   <body>
-    <div id="app" class="main">
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://slowlog.github.io">
+  <img class="avatar" src="https://slowlog.github.io/images/avatar.png?v=1559380147223" alt="">
+  </a>
+  <h1 class="site-title">
+    slowlog
+  </h1>
+  <p class="site-description">
+    slow life slow log.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
 
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://slowlog.github.io">
-        <img src="https://slowlog.github.io/images/avatar.png?v=1559380050178" class="site-logo">
-        <h1 class="site-title">slowlog</h1>
+    
+        <div class="post-container">
+  
+    <article class="post">
+      <a href="https://slowlog.github.io/post/mysql-xue-xi-bi-ji">
+        <h2 class="post-title">MySQL 学习笔记</h2>
       </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
+      <div class="post-info">
+        <time class="post-time">
+          · 2019-06-01 ·
+        </time>
+        
+          <a href="https://slowlog.github.io/tag/dL0iL1yYb" class="post-tag">
+            # MySql
+          </a>
+        
       </div>
-    </div>
-    <div>
       
+        <a href="https://slowlog.github.io/post/mysql-xue-xi-bi-ji" class="post-feature-image" style="background-image: url('https://slowlog.github.io/post-images/mysql-xue-xi-bi-ji.png')">
+        </a>
+      
+      <div class="post-abstract">
         
-          <a href="/" class="site-nav">
-            首页
+      </di>
+    </article>
+  
+    <article class="post">
+      <a href="https://slowlog.github.io/post/nginx-xue-xi-bi-ji">
+        <h2 class="post-title">Nginx 学习笔记</h2>
+      </a>
+      <div class="post-info">
+        <time class="post-time">
+          · 2018-09-15 ·
+        </time>
+        
+          <a href="https://slowlog.github.io/tag/97GKPrquG" class="post-tag">
+            # Linux
           </a>
         
+      </div>
       
+        <a href="https://slowlog.github.io/post/nginx-xue-xi-bi-ji" class="post-feature-image" style="background-image: url('https://slowlog.github.io/post-images/nginx-xue-xi-bi-ji.jpeg')">
+        </a>
+      
+      <div class="post-abstract">
         
-          <a href="/archives" class="site-nav">
-            归档
+      </di>
+    </article>
+  
+    <article class="post">
+      <a href="https://slowlog.github.io/post/docker-xue-xi-bi-ji">
+        <h2 class="post-title">Docker 学习笔记</h2>
+      </a>
+      <div class="post-info">
+        <time class="post-time">
+          · 2017-11-01 ·
+        </time>
+        
+          <a href="https://slowlog.github.io/tag/97GKPrquG" class="post-tag">
+            # Linux
           </a>
         
+      </div>
       
+        <a href="https://slowlog.github.io/post/docker-xue-xi-bi-ji" class="post-feature-image" style="background-image: url('https://slowlog.github.io/post-images/docker-xue-xi-bi-ji.jpg')">
+        </a>
+      
+      <div class="post-abstract">
         
-          <a href="/tags" class="site-nav">
-            标签
+      </di>
+    </article>
+  
+    <article class="post">
+      <a href="https://slowlog.github.io/post/ge-ren-shu-qian-andshou-cang">
+        <h2 class="post-title">个人书签&amp;收藏</h2>
+      </a>
+      <div class="post-info">
+        <time class="post-time">
+          · 2017-08-01 ·
+        </time>
+        
+          <a href="https://slowlog.github.io/tag/CqawtMI22" class="post-tag">
+            # Other
           </a>
         
+      </div>
       
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
+      <div class="post-abstract">
         
-      
+      </di>
+    </article>
+  
+    <article class="post">
+      <a href="https://slowlog.github.io/post/java-xue-xi-bi-ji">
+        <h2 class="post-title">Java 学习笔记</h2>
+      </a>
+      <div class="post-info">
+        <time class="post-time">
+          · 2017-06-15 ·
+        </time>
         
-      
+          <a href="https://slowlog.github.io/tag/urLqEf71R" class="post-tag">
+            # Java
+          </a>
         
+      </div>
       
+        <a href="https://slowlog.github.io/post/java-xue-xi-bi-ji" class="post-feature-image" style="background-image: url('https://slowlog.github.io/post-images/java-xue-xi-bi-ji.jpeg')">
+        </a>
+      
+      <div class="post-abstract">
         
-      
+      </di>
+    </article>
+  
+    <article class="post">
+      <a href="https://slowlog.github.io/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji">
+        <h2 class="post-title">《计算机是怎样跑起来的》读书笔记</h2>
+      </a>
+      <div class="post-info">
+        <time class="post-time">
+          · 2016-06-05 ·
+        </time>
         
+          <a href="https://slowlog.github.io/tag/CqawtMI22" class="post-tag">
+            # Other
+          </a>
+        
+      </div>
       
-    </div>
-    <div class="site-description">
-      slow life slow log.
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://slowlog.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
+        <a href="https://slowlog.github.io/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji" class="post-feature-image" style="background-image: url('https://slowlog.github.io/post-images/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji.jpg')">
+        </a>
+      
+      <div class="post-abstract">
+        
+      </di>
+    </article>
+  
+    <article class="post">
+      <a href="https://slowlog.github.io/post/linux-chang-yong-ming-ling">
+        <h2 class="post-title">Linux 常用命令</h2>
+      </a>
+      <div class="post-info">
+        <time class="post-time">
+          · 2016-03-02 ·
+        </time>
+        
+          <a href="https://slowlog.github.io/tag/97GKPrquG" class="post-tag">
+            # Linux
+          </a>
+        
+      </div>
+      
+        <a href="https://slowlog.github.io/post/linux-chang-yong-ming-ling" class="post-feature-image" style="background-image: url('https://slowlog.github.io/post-images/linux-chang-yong-ming-ling.jpeg')">
+        </a>
+      
+      <div class="post-abstract">
+        
+      </di>
+    </article>
+  
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://slowlog.github.io/post/mysql-xue-xi-bi-ji">
-                  <h2 class="post-title">MySQL 学习笔记</h2>
-                </a>
-                <div class="post-date">
-                  2019-06-01
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://slowlog.github.io/post/mysql-xue-xi-bi-ji">
-                  <div class="feature-container" style="background-image: url('https://slowlog.github.io/post-images/mysql-xue-xi-bi-ji.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://slowlog.github.io/post/nginx-xue-xi-bi-ji">
-                  <h2 class="post-title">Nginx 学习笔记</h2>
-                </a>
-                <div class="post-date">
-                  2018-09-15
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://slowlog.github.io/post/nginx-xue-xi-bi-ji">
-                  <div class="feature-container" style="background-image: url('https://slowlog.github.io/post-images/nginx-xue-xi-bi-ji.jpeg')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://slowlog.github.io/post/docker-xue-xi-bi-ji">
-                  <h2 class="post-title">Docker 学习笔记</h2>
-                </a>
-                <div class="post-date">
-                  2017-11-01
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://slowlog.github.io/post/docker-xue-xi-bi-ji">
-                  <div class="feature-container" style="background-image: url('https://slowlog.github.io/post-images/docker-xue-xi-bi-ji.jpg')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://slowlog.github.io/post/ge-ren-shu-qian-andshou-cang">
-                  <h2 class="post-title">个人书签&amp;收藏</h2>
-                </a>
-                <div class="post-date">
-                  2017-08-01
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://slowlog.github.io/post/java-xue-xi-bi-ji">
-                  <h2 class="post-title">Java 学习笔记</h2>
-                </a>
-                <div class="post-date">
-                  2017-06-15
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://slowlog.github.io/post/java-xue-xi-bi-ji">
-                  <div class="feature-container" style="background-image: url('https://slowlog.github.io/post-images/java-xue-xi-bi-ji.jpeg')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://slowlog.github.io/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji">
-                  <h2 class="post-title">《计算机是怎样跑起来的》读书笔记</h2>
-                </a>
-                <div class="post-date">
-                  2016-06-05
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://slowlog.github.io/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji">
-                  <div class="feature-container" style="background-image: url('https://slowlog.github.io/post-images/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji.jpg')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://slowlog.github.io/post/linux-chang-yong-ming-ling">
-                  <h2 class="post-title">Linux 常用命令</h2>
-                </a>
-                <div class="post-date">
-                  2016-03-02
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://slowlog.github.io/post/linux-chang-yong-ming-ling">
-                  <div class="feature-container" style="background-image: url('https://slowlog.github.io/post-images/linux-chang-yong-ming-ling.jpeg')">
-                  </div>
-                </a>
-              
-            </article>
-          
-
-          <div class="pagination-container">
+    
+        <div class="pagination-container">
   
   
 </div>
 
-        </div>
-      </div>
-    </div>
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://slowlog.github.io/atom.xml" target="_blank">RSS</a>
+</div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+<script>
+  hljs.initHighlightingOnLoad()
 </script>
 
-
-
-
+      </div>
+    </div>
   </body>
 </html>
