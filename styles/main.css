@@ -819,4 +819,8 @@ td {
   border-radius: 4px;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
+
+.post-detail .post .post-feature-image{
+   display:none;
+}
     
