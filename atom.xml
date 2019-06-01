@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://slowlog.github.io</id>
     <title>slowlog</title>
-    <updated>2019-06-01T08:27:51.405Z</updated>
+    <updated>2019-06-01T08:29:55.222Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://slowlog.github.io"/>
     <link rel="self" href="https://slowlog.github.io/atom.xml"/>
@@ -10,6 +10,763 @@
     <logo>https://slowlog.github.io/images/avatar.png</logo>
     <icon>https://slowlog.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, slowlog</rights>
+    <entry>
+        <title type="html"><![CDATA[Linux 常用命令]]></title>
+        <id>https://slowlog.github.io/post/linux-chang-yong-ming-ling</id>
+        <link href="https://slowlog.github.io/post/linux-chang-yong-ming-ling">
+        </link>
+        <updated>2019-06-01T08:29:37.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="文件-目录类">文件、目录类</h3>
+<pre><code>cd                     # cd 不加任何参数，返回 home 目录
+cd -                   # 返回上一次所在目录,并显示其目录名
+cd dir                 # 进入到指定目录
+pwd                    # 显示当前目录的绝对路径
+ls -l                  # 列出文件的详细信息,可简写为 ll
+ls | grep &quot;bin&quot;        # 列出包含 &quot;bin&quot; 关键字的文件
+mkdir dir              # 创建一个目录
+mkdir -p dir/dir       # 创建一个多级目录
+mkdir -m 777 dir       # 创建权限为 777 的目录
+touch file             # 创建新的空文件
+rmdir dir              # 删除空目录
+rmdir -p dir/bin       # 删除子空目录 bin 和其父空目录 dir
+rm -rf dir/bin         # 删除一个目录中的一个或多个文件或目录, 谨慎使用
+rm -rf *.log           # 删除当前目录下所有 &quot;.log&quot; 的文件
+find fileName ‐name  *.txt | xargs rm ‐rf   # 将查找出来的文件全部删除, 谨慎使用
+cp file dir/file       # 将文件或目录拷贝到另一文件或目录中 
+cp ‐R dir1 dir2 /dir   # 拷贝多个目录 (含子目录) 到指定目录
+mv dir1 dir2           # 将文件或目录重新命名,或者将文件从一个目录移到另一个目录中
+sz fileName            # 下载指定文件到本地
+rz                     # 上传文件到服务器
+</code></pre>
+<h3 id="文件查看-处理">文件查看、处理</h3>
+<pre><code>cat file                 # 显示文件的内容
+cat -n file              # 从1开始对文件的行数编号
+cat file1 file2 &gt; file3  # 将文件 file1 和 file2 的内容合并之后放入 file3 中    
+head file                # 显示文件的头 10 行内容
+tail file                # 显示文件的最后 10 行内容 
+tail -f file             # 显示文件最新追加的内容,并监视文件的变化,常用来跟踪日志文件
+more file                # 基于vi编辑器文本过滤器,它以全屏幕的方式按页显示文本文件的内容 
+less file                # 作用与 more 十分类似, pageUp 向上翻页, pageDown 向下翻页, q 退出 
+cat file1 &gt; file2        # 覆盖导入
+cat file1 &gt;&gt; file        # 追加导入
+wc ‐l [‐m][‐c][‐w] file  # 统计行数、字符数、字节数、单词数
+</code></pre>
+<h3 id="文件查询-搜索">文件查询、搜索</h3>
+<pre><code>grep keyWord                             # 常与 cat 搭配使用 cat file | grep keyWord
+find dir -name &quot;*.log&quot;                   # 搜索指定目录下的 &quot;.log&quot; 文件
+find dir -name &quot;*.log&quot; -o -name &quot;*.pid&quot;  # 搜索指定目录下的 &quot;.log&quot; 文件和 &quot;.pid&quot; 文件
+find dir -user user1                     # 搜索指定目录下属于 user1 用户的文件
+</code></pre>
+<h3 id="文本编辑-vi-底行模式下">文本编辑 vi 底行模式下</h3>
+<pre><code>:set nu               # 显示行号
+:set nonu             # 不显示行号
+:n                    # 跳转到指定第 n 行
+:w file               # 另存为
+:n1,n2 s/str1/str2/g  # 从 n1 行到 n2 行, 将 str1 替换为 str2
+:wq                   # 保存并退出
+:q!                   # 强制退出不保存
+</code></pre>
+<h3 id="文本编辑-vi-命令模式下">文本编辑 vi 命令模式下</h3>
+<pre><code>G                # 到末行
+gg               # 到首行
+dd               # 删除行
+u                # 撤销
+yy               # 复制一行
+nyy              # 复制 n 行
+p                # 粘贴
+</code></pre>
+<h3 id="权限管理">权限管理</h3>
+<pre><code>chmod 755 dir/file        # 修改指定文件的权限
+chmod ‐R 755 dir          # 递归修改目录及其子文件、目录的权限  
+chown user file           # 改变文件的所有者  
+chown ‐R user dir         # 改变目录的所有者  
+chgrp group1 file         # 改变文件的所有者 
+chgrp ‐R group1 dir       # 改变目录的所属组  
+chown user1:group1 file   # 同时改变文件的所有者和所属组   
+chown ‐R user1:group1 dir # 同时改变目录的所有者和所属组   
+whoami                    # 查看当前操作用户  
+who                       # 查看当前已登录系统的用户  
+id user1                  # 查看用户 user1 的归属 id 信息 
+</code></pre>
+<h3 id="压缩-解压">压缩、解压</h3>
+<pre><code>tar -cvf test.tar test.log      # 仅打包,不压缩
+tar -xvf test.tar               # 直接解包
+tar -zcvf test.tar.gz test.log  # 打包后,以 gzip 压缩
+tar -zcvf test.tar.gz *         # 将当前目录下所有文件压缩
+tar -zxvf test.tar.gz           # 直接解压
+tar ‐zxvf test.tar.gz ‐C dir    # 解压到新目录,只能是 dir 且已经存在
+gzip *                          # 压缩目录下所有文件
+gzip -d *                       # 解压缩目录下所有文件
+zip test.zip *                  # 将当前目录下所有文件压缩为 zip 包
+unzip test.zip                  # 解压缩 zip 包
+</code></pre>
+<h3 id="用户管理">用户管理</h3>
+<pre><code>groupadd group1              # 创建组
+groupdel group1              # 删除组
+groupmod  ‐n group2 group1   # 将 group1 重命名 group2  
+useradd user1                # 创建用户
+useradd ‐g group1 user1      # 创建 user1 并将其分配到 group1 组下  
+userdel ‐r user1             # 删除 user1, &quot;‐r&quot; 参数表示同时也删除 home 目录下的相关目录  
+usermod ‐g group2 user1      # 改变 user1 的组为 group2  
+usermod ‐G group2 user1      # 将 user1 的添加到 group2 组中来，同时保留原来的主组  
+passwd                       # 修改当前用户密码 
+passwd user1                 # 修改 user1 用户的密码，仅限 root 用户执行  
+su user1                     # 切换到用户 user1 
+groups user1                 # 查看用户 user1 所属的组 
+</code></pre>
+<h3 id="网络配置管理">网络配置管理</h3>
+<pre><code>ifconfig -a                  # 查看 ip 信息
+ping 127.0.0.1               # 测试主机之间网络的连通性,执行 ping 命令会使用 ICMP 传输协议
+ping 192.168.0.1             # 测试从我们的电脑到路由器之间的是否通畅
+ping 192.168.0.1 -t -l 65500 # 丢包检查
+service network restart      # 重启网络服务 [start , stop]
+hostname                     # 查看主机名
+netstat -ntlp                # 查询当前系统监听 tcp 端口的进程
+</code></pre>
+<h3 id="远程连接">远程连接</h3>
+<pre><code>ssh root@112.74.95.60                      # 远程连接 shell  
+logout                                     # 退出连接  
+scp ‐r root@112.74.95.60:/user/local/logs  # 远程复制目录,复制文件时不用加 &quot;‐r&quot; 
+</code></pre>
+<h3 id="查看命令帮助">查看命令帮助</h3>
+<pre><code>help cd       # 用于内部命令, 如 exit、history、cd、echo 等常驻内存  
+ls ‐‐help     # 主要用于外部命令,可通过 &quot;echo $PATH&quot; 命令查看外部命令的存储路径,如 ls,vi 等  
+man ls        # 命令手册,可用于所有命令,输入&quot;q&quot;可退出  
+type cd       # 查看命令类型,内部 or 外部及命令位置 
+</code></pre>
+<h3 id="系统相关命令">系统相关命令</h3>
+<pre><code>shutdown  ‐h now                    # 立即关机  
+shutdown  ‐r now                    # 立即重启  
+uname ‐r                            # 查看内核版本   
+cal                                 # 日历  
+date                                # 时间、日期  
+date ‐s &quot;2015‐12‐22 08:00&quot;          # 修改时间  
+ntpdate time.nist.gov               # 同步当前时间
+history                             # 查看历史命令记录,运行时 &quot;!&quot;+ 命令号,如 !3314 运行 3314 命令  
+ps -ef                              # 查看进程  
+kill pid                            # 终止进程  
+kill ‐9 pid                         # 制终止进程  
+top                                 # 查看当前系统资源使用率  
+df ‐h                               # 查看磁盘信息  
+free ‐m                             # 查看内存信息  
+du ‐h file/dir                      # 查看文件/目录大小 ‐h 表示以 K,M,G  
+du ‐sh file/dir                     # 查看文件/目录总大小  
+mount ‐o loop linux.iso /mnt/dir    # 加载文件系统到指定的加载点
+umount /mnt/dir                     # 卸载已经加载的文件系统
+rpm ‐ivh xxx.rpm                    # 安装 rpm 包  
+rpm ‐e xxx.rpm                      # 卸载 rpm 包 
+wget http://url                     # 下载远端 zip 包
+echo &gt; fileNme                      # 清空文件内容
+</code></pre>
+<h3 id="其他">其他</h3>
+<pre><code>tree -L 1  #显示一级目录和文件
+tree -L 1 -d  #只显示一级目录
+
+# 启用正则（命令行）
+shopt -s extglob 
+# 单个文件或是文件夹反选
+rm -rf !(file1)
+# 多个文件或是文件夹反选
+rm -rf !(file1|file2)
+
+
+# 停止firewalld服务
+systemctl stop firewalld   
+# 禁用firewalld服务
+systemctl mask firewalld
+ 
+# 安装iptables
+yum install -y iptables
+yum update iptables
+yum install -y iptables-services
+ 
+# 启用服务
+systemctl enable iptables.service
+systemctl start iptables.service
+ 
+# 开放80端口
+vim /etc/sysconfig/iptables
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+  
+# 重启服务
+systemctl restart iptables.service
+  
+# 查看已添加规则
+iptables -L -n -v
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MySQL 学习笔记]]></title>
+        <id>https://slowlog.github.io/post/mysql-xue-xi-bi-ji</id>
+        <link href="https://slowlog.github.io/post/mysql-xue-xi-bi-ji">
+        </link>
+        <updated>2019-06-01T08:28:17.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="常用-sql-语句">常用 SQL 语句</h3>
+<pre><code>#登陆
+mysql -h host -u username -p
+
+#列出所有数据库、选择数据库、列出所有表
+show databases;
+use database_name;
+show tables;
+
+#列出表结构
+desc table_name;
+
+#查看全局变量
+show global variables;
+
+#查看MySQL的字符集
+show variables like'character%';
+
+#修改运行时配置
+set global variables_name=xxx;
+
+#查看 MySQL 配置文件加载顺序
+mysqld --help --verbose|grep -A 1 'Default options';
+
+#创建数据库
+CREATE DATABASE IF NOT EXISTS `db_name` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`;
+
+#创建用户及授权
+CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON `db_name`.* TO 'username'@'%';
+
+说明:
+- username 你将创建的用户名, 
+- host 指定该用户在哪个主机上可以登陆,如果是本地用户可用localhost, 如果想让该用户可以从任意远程主机登陆,可以使用通配符%.  例: '192.168.1.%'
+- password 该用户的登陆密码,密码可以为空,如果为空则该用户可以不需要密码登陆服务器. 
+
+#更新权限
+FLUSH PRIVILEGES;
+
+#列出所有用户
+SELECT User, Host FROM mysql.user;
+
+#更新用户密码
+update mysql.user set password (&gt;=5.7 authentication_string)=password('new_password') where User=&quot;test&quot;;
+
+#删除用户
+drop user username@'%';
+
+#清空整张表
+TRUNCATE TABLE `your_table_name`;
+
+#变更字段值为另一张表的某个值
+UPDATE `your_table_name` AS a JOIN `your_anther_table_name` AS b 
+SET a.column = b.anther_column
+WHERE a.id = b.a_id...;
+
+#同一个实例下跨库查询
+SELECT *
+FROM database_name.your_table_name
+AS a
+JOIN another_database_name.your_another_table_name
+AS b
+WHERE a.column_name = b.column_name...;
+
+#完全复制一张表：表结构+全部数据
+CREATE TABLE `your_table_name`
+LIKE `destination_table_name`;
+
+INSERT INTO `your_table_name`
+SELECT *
+FROM `destination_table_name`;
+
+</code></pre>
+<h3 id="命名规范">命名规范</h3>
+<pre><code>- 命名要做到见名知意，统一：mb_xxxx；表名不超过40个字符（即最大只能40个字符）
+- 库名、表名、字段名、索引名必须使用小写字母；所有数据库对象名称，禁止使用MySQL保留关键字
+- 所有的表和字段都要添加注释
+- 临时库、表必须以tmp为前缀并以日期为后缀
+- 备份库、表必须以bak为前缀并以日期为后缀
+</code></pre>
+<h3 id="表与字段规范">表与字段规范</h3>
+<pre><code>- 所有表的DDL，都不回退
+- 表一旦设计好， 字段只允许增加， 不允许减少（drop column）， 不允许改名称（change column）
+- 禁止default NULL，数字类型not null default 0，字符类型not null default ''；
+- 所有表必须有create_time和last_update_time，方便后期数据分析与记录变化排查，哪怕只是配置表，只有10行记录；
+- 禁止在表中建立预留字段及在表中存储大的二级制数据
+- 所有存储相同数据的列名与列类型必须一致(关联表)
+- 非负型的数据优先使用无符号整型存储
+- 存储精确浮点数必须使用DECIMAL替代FLOAT和DOUBLE，如金额等
+- 单表数据量的大小， 建议控制在500万以内， 为此设计阶段需考虑数据的归档
+
+- 统一使用INNODB存储引擎， UTF8编码（整个数据库的编码统一为utf8_general_ci，为此不需要建立表的DDL加上特别CHARACTER SET utf8 COLLATE utf8_general_ci）
+
+- 禁止使用 UUID()，USER()这样的MYSQL INSIDE函数对于复制来说是很危险的，会导致主备数据不一致，重要的是会严重影响mysql性能
+
+- 表必须有主键，建议统一由Auto-Increment字段生成整型，不建议使用组合主键，自增id只作为虚拟主键，不建议与业务数据处理有关联关系，如果把控不好，会有问题
+
+- 需在设计阶段考虑如果访问量非常大，且不做scale out表拆分的话，需读写分离，但读写分离注意主从复制有延迟的可能性
+
+- 不要使用TEXT、BLOB、char，请使用VARCHAR(N)，N表示的是字符数不是字节数，比如VARCHAR(255)，可以最大可存储255个汉字，需要根据实际的宽度来选择N，请注意同一表中，所有varchar字段的长度加起来，不能大于65535。避免使用枚举(ENUM)类型
+
+- 如果字段只有true or false，请使用tinyint（数值范围-128~127），如模块分类：1订单 2商品；删除标志 0正常，1删除；状态 1为可选，2为不可选等等
+- 存储时间（精确到秒）建议使用TIMESTAMP类型，因为TIMESTAMP使用4字节，DATETIME使用8个字节，同时TIMESTAMP具有自动赋值以及自动更新的特性。
+
+- 加字段禁止使用after，因为你不确定全局代码里面（如其他团队使用你的表）是否都insert into table（col，col，col。。。） value，如果你在中间插一个字段，就导致数据偏移的问题了，影响可大可小，同样select * 的也可能会影响数值的偏移
+
+- 如果应用使用的是长连接，应用必须具有自动重连的机制。但请避免每执行一个SQL去检查一次DB可用性；应用应该具有连接的TIMEOUT检查机制，及时回收长时间没有使用的连接，TIMEOUT时间一般建议为20min
+
+- 关键业务数据表，如订单表，用户信息表，钱包支付信息等，禁止硬删除，必须软删除，加上is_deleted字段，标注这条记录的状态。
+</code></pre>
+<h3 id="索引使用规范">索引使用规范</h3>
+<pre><code>#索引列建议
+
+- SELECT、UPDATE、DELETE 语句的WHERE从句中的列
+- 包含在ORDER BY、GROUP BY、DISTINCT中的列
+- 多表JOIN的关联列
+
+#规范标准
+
+- 非唯一索引建议使用“idx_表缩写名称_字段缩写名称”进行命名。
+- 唯一索引建议使用“uniq_表缩写名称_字段缩写名称”进行命名。
+- 索引名称必须_=BD_用小写。
+- 唯一键不和主键重复。
+- 索引字段的顺序需要考虑字段值去重之后的个数，个数多的放在前面，就是数据分布。
+- 使用EXPLAIN判断SQL语句是否合理使用索引，尽量避免extra列出现：Using File Sort，Using Temporary。
+- UPDATE、DELETE语句需要根据WHERE条件添加索引。
+- 合理创建联合索引（避免冗余），(a，b，c) 相当于 (a) 、(a，b) 、(a，b，c)。
+- 合理利用覆盖索引。比如SELECT email，uid FROM user_email WHERE uid=xx，如果uid不是主键，适当时候可以将索引添加为index(uid，email)，以获得性能提升。
+</code></pre>
+<h3 id="约束设计规范">约束设计规范</h3>
+<pre><code>- 主键的内容不能被修改。
+- 外键约束一般不在数据库上创建，只表达一个逻辑的概念，由程序控制。
+- 禁用数据库外键
+#命名
+- 主键约束：默认PRIMARY；
+- unique约束：UK_&lt;column_name&gt;
+- check约束： CK_&lt;column_name&gt;
+- 外键约束： 业务禁用
+</code></pre>
+<h3 id="sql-语句规范">SQL 语句规范</h3>
+<pre><code>- 禁止使用子查询，select col、col from table where id in （select col from table）这是禁止的
+
+- 多表join的时候，写SQL的时候一定要给每个字段指定表名做前缀；如: select a.id，a.name from test1 a， test2 b where a.id=b.id
+
+- 尽量用单表查询，避免多表JOIN，禁止多于3表join，join的字段数据类型必须绝对一致
+
+- 使用prepared statement，可以提供性能并且避免SQL注入。
+
+- SELECT语句只获取需要的字段，禁止使用SELECT * FROM语句，这是有效防止新增字段对应用逻辑的影响，还能减少对性能的影响
+
+- INSERT语句必须显式的指明字段名称，不使用INSERT INTO table value()
+
+- 禁止在where子句中对字段施加函数，如to_date（add_time)&gt;xxxxx，应改为:add_time &gt;= unix_timestamp(date_add(str_to_date('20130227'，'%Y%m%d')，interval - 29 day))
+
+- 写到应用程序里的SQL语句，禁止一切DDL操作，如对这些权限有要求，必需与DBA协商同意方可使用
+
+- WHERE条件中必须使用合适的类型，避免MySQL进行隐式类型转化，如ISENDED=1，字段类型是tinyint，那么不能是ISENDED=‘1’
+
+- 避免在SQL语句进行数学运算或者函数运算，容易将业务逻辑和DB耦合在一起。
+
+- 避免使用存储过程、触发器、函数等，容易将业务逻辑和DB耦合在一起，并且MySQL的存储过程、触发器、函数中存在一定的bug。
+
+- 使用合理的SQL语句减少与数据库的交互次数。
+
+- 不使用ORDER BY RAND()，使用其他方法替换。
+
+- 建议使用合理的分页方式以提高分页的效率。
+
+- InnoDB表避免使用COUNT(*)操作，计数统计实时要求较强可以使用memcache或者redis，非实时统计可以使用单独统计表，定时更新。
+
+- 不建议使用%前缀模糊查询，例如LIKE “%weibo”。
+
+- 避免多余的排序。使用GROUP BY 时，默认会进行排序，当你不需要排序时，可以使用order by null，例如Select a.OwnerUserID，count(*) cnt from DP_MessageList a group by a.OwnerUserID order by null；
+
+- 新增排序要求：不鼓励在DB里排序，特别是只有1000行一下的，请在app server上排序，app server有上百台，而db仅仅个位数的服务器数量，排序都在db，会把db压垮的，特别是禁止上千行的排序在db这边。
+</code></pre>
+<h3 id="主从复制">主从复制</h3>
+<h4 id="工作原理概述">工作原理概述</h4>
+<ol>
+<li>主库将变更写入到主库的 binlog 中</li>
+<li>从库的 IO 进程从指定的位置读取主库 binlog 内容存储到从库 Relay Log 日志中</li>
+<li>从库的 SQL 进程读取 Relay Log 日志中内容在从库中重放</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/16852041/33526576-a4df45a0-d87e-11e7-903f-fa8794a94384.png" alt="0_1330439010p7li"></p>
+<h4 id="配置步骤">配置步骤</h4>
+<h4 id="方式一-基于二进制日志点">方式一、基于二进制日志点</h4>
+<pre><code>1. 配置主从数据库服务器参数
+#主服务器配置
+log_bin=/data/mysql/sql_log/mysql-bin
+server-id = 100 (192.168.1.100, 值为ip地址最后一段)
+#注: UUID 值如果相同, 主从复制会出现问题, 删除 data 目录下的 auto.cnf 即可
+
+#从服务器配置
+log_bin=/data/mysql/sql_log/mysql-bin
+server-id = 101 (192.168.1.101, 值为ip地址最后一段)
+relay_log= /data/mysql/sql_log/relay-log
+read_only=on
+super_read_only=on (MySQL&gt;=5.7)
+skip_slave_start=on
+master_info_repository=TABLE
+relay_log_info_repository=TABLE
+
+2. 在主服务器上创建数据库账号 ( 用于从服务器IO进程连接获取 binlog ), 需要 REPLICATION SLAVE 权限
+
+CREATE USER 'repl'@'IP段' identified by 'password';
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'IP段';
+
+3. 备份主服务器上的数据并在从服务器上恢复
+
+- 建议主从数据库采用相同的MySQL版本  (注意: 如不相同,则主服务器的版本一定要低于从服务器)
+- 建议使用全库备份的方式初始化 Slave 上的数据
+
+#主服务器备份
+mysqldump  -uroot -p --master-data -A  --single-transaction -R --triggers  &gt; all.sql
+#拷贝到从服务器
+scp all.sql root@192.168.1.101:/root
+#从服务器恢复
+mysql -uroot - p &lt; all.sql
+
+4. 启动复制链路 (从服务器执行)
+mysql&gt; CHANGE MASTER TO MASTER_HOST='192.168.1.100',
+    -&gt; MASTER_USER='repl',
+    -&gt; MASTER_PASSWORD='password',
+    -&gt; MASTER_LOG_FILE='mysql_log_file_name', // 从主服务器备份文件中获取
+    -&gt; MASTER_LOG_POS=xxx; // 从主服务器备份文件中获取
+mysql&gt; start slave;  //启动
+mysql&gt; show slave status \G // 查看状态
+
+</code></pre>
+<h4 id="方式二-基于gtid-全局事务id">方式二、基于GTID (全局事务ID)</h4>
+<pre><code>#在主库从库设置 gtid 模式
+#设置gtid模式，在my.cnf里面的mysqld选项卡里面设置，设置完后，重启mysql服务生效
+gtid_mode=on
+enforce-gtid-consistency=on
+log-slave-updates=on (MySQL &gt;=5.7 则可以不启用)
+
+#从服务器启动复制链路
+mysql&gt; CHANGE MASTER TO MASTER_HOST='master_host_ip',
+    -&gt; MASTER_USER='repl',
+    -&gt; MASTER_PASSWORD='password',
+    -&gt; MASTER_AUTO_POSITION = 1
+</code></pre>
+<h4 id="利用-keepalived-实现双主复制-主主复制">利用 keepalived 实现双主复制 (主主复制)</h4>
+<p>虚拟IP (vip)
+就是一个未分配给真实主机的ip,也就是说对外提供服务的主机除了有一个真实ip外还有一个虚拟ip</p>
+<p>如下图所示 :</p>
+<p><img src="https://user-images.githubusercontent.com/16852041/33527743-fc97c38c-d890-11e7-9ded-b7f6ebffdb21.png" alt="qq 20171204011725"></p>
+<h4 id="主主复制配置变更">主主复制配置变更</h4>
+<pre><code>#主数据库配置修改 (my.cnf)
+auto_increment_increment=2
+auto_increment_offset=1  // 1,3,5,7,9... 
+
+#从数据库配置修改
+auto_increment_increment=2
+auto_increment_offset=2 // 2,4,6,8, 10...
+
+#查看当前状态
+mysql &gt; show master status \G
+
+#主服务器启用复制链路
+#由于是主主复制, 所以把当前的主库当做从库, 当前的从库当做主库
+mysql &gt; change master to master_host='192.168.1.101',
+          &gt; master_user='repl', // 由于之前从服务器初始化了主库的数据, 所以从库也有这个用户
+          &gt; master_password='password',
+          &gt; master_log_file='从服务器的二进制日志',
+          &gt; master_log_pos='从服务器的二进制日志点';
+
+mysql &gt; start slave;
+mysql &gt; show slave status \G
+
+</code></pre>
+<h4 id="keepalived-安装-主和主备服务器都要安装">keepalived 安装 (主和主备服务器都要安装)</h4>
+<pre><code>#yum源安装
+yum install keepalived –y
+
+#源码安装
+#下载指定版本
+wget http://www.keepalived.org/software/keepalived-1.2.20.tar.gz                  
+#解压缩安装
+tar -xvf keepalived-1.2.20.tar.gz
+cd keepalived-1.2.20
+yum install openssl* -y
+./configuremakemake install
+
+#配置文件路径  
+/etc/keepalived/keepalived.conf
+
+#启动 keepalived
+/etc/init.d/keepalived start
+
+- 具体配置参考 http://blog.csdn.net/hzsunshine/article/details/67059532
+</code></pre>
+<h3 id="性能优化">性能优化</h3>
+<h4 id="服务器硬件和系统的选择">服务器硬件和系统的选择</h4>
+<pre><code>#CPU
+- 64位的cpu一定要工作在64的系统下
+- 对于并发比较高的场景cpu的数量比频率重要
+- 对于cpu密集性场景和复杂SQL则频率越高越好
+#内存
+- 选择主板所能使用的最高频率的内存
+- 内存的大小对性能很重要, 所以尽可能的大
+#I/O子系统
+- PCIe -&gt; SSD -&gt; Raid10 -&gt; HHD -&gt; (SAN/NAS)
+`SAN一般用于数据备份`
+</code></pre>
+<h4 id="centos-系统参数优化">CentOS 系统参数优化</h4>
+<pre><code>#内核相关参数(/etc/sysctl.conf)，以下参数根据需求调整
+net.core.somaxconn = 65535
+net.core.netdev_max_backlog = 65535
+net.ipv4.tcp_max_syn_backlog = 65535
+
+net.ipv4.tcp_fin_timeout = 10
+
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_tw_recycle = 1 
+
+net.core.wmen_default = 87380
+net.core.wmen_max = 16777216
+net.core.rmen_default = 87380
+net.core.rmen_max = 16777216
+
+net.ipv4.tcp_keepalive_time = 120
+net.ipv4.tcp_keepalive_intvl = 30
+net.ipv4.tcp_keepalive_probes = 3
+
+#linux内核参数中最重要的参数之一,用于定义单个共享内存段的最大值
+kernel.shmmax = 4294967295
+1.这个参数应该设置的足够大, 以便能在一个共享内存段下容纳整个的Innodb缓冲池的大小
+2. 这个值的大小对于64位linux系统,可取的最大值为物理内存值减1byte, 一般取值大于Innodb缓冲池的大小即可
+
+#当内存不足时会对性能产生比较明显的影响
+vm.swappiness = 0 
+
+#增加资源限制(/etc/security/limits.conf)
+* soft nofile 65535
+* hard nofile 65535
+// ---------------------------
+*          表示对所有用户有效
+soft     指的是当前系统生效的设置
+hard    表明系统中所能设定的最大值
+nofile  表示所限制的资源是打开文件的最大数目
+65535 限制的数量
+
+#改变磁盘调度策略
+echo deadline &gt; /sys/block/sda/queue/scheduler
+
+#文件系统建议使用 XFS
+</code></pre>
+<h4 id="数据库存储引擎和参数配置">数据库存储引擎和参数配置</h4>
+<h5 id="常用的存储引擎">常用的存储引擎</h5>
+<pre><code>- MyISAM (5.5之前版本默认存储引擎)
+&gt; 适用场景: 1. 非事务型应用  2. 只读类应用(表中绝大部分都是查询操作)
+
+- Innodb (5.5之后版本默认存储引擎)
+&gt; 适用场景: 大多数OLTP应用
+
+- CSV ( 以csv格式进行存储数据)
+&gt; 适用场景: 数据交换的中间表 
+
+- Archive (只支持insert和select操作)
+&gt; 适用场景: 日志和数据采集类应用
+
+- Memory(所有数据保存在内存中)
+&gt; 适用场景: 映射表或缓存周期性聚合数据的结果表
+
+`参考: http://blog.csdn.net/lc0817/article/details/52757194`
+</code></pre>
+<h4 id="mysql-参数配置">MySQL 参数配置</h4>
+<pre><code>#内存相关配置参数
+sort_buffer_size
+join_buffer_size
+read_buffer_size
+read_rnd_buffer_size
+Innodb_buffer_pool_size
+key_buffer_size
+
+# IO相关配置参数
+#innodb引擎
+Innodb_log_file_size
+Innodb_log_files_in_group
+Innodb_log_buffer_size
+Innodb_flush_log_at_trx_commit = 2
+Innodb_flush_method = O_DIRECT
+Innodb_file_per_table = 1
+Innodb_doublewrite = 1
+
+#安全相关配置参数
+expire_logs_days
+max_allowed_packet
+skip_name_resolve
+sysdate_is_now
+read_only (从库中启用)
+skip_slave_start (从库中禁用)
+sql_mode
+
+#其他常用配置参数
+sync_binlog
+tmp_table_size 和 max_heap_table_size 一起使用,值保持一致
+max_connections (控制允许的最大连接数)
+
+</code></pre>
+<h4 id="数据库表结构设计和sql语句的优化-重点">数据库表结构设计和SQL语句的优化 (重点)</h4>
+<h4 id="如何实现读写分离">如何实现读写分离</h4>
+<h5 id="方式一">方式一</h5>
+<pre><code>- 由开发人员根据所执行的SQL类型连接不同的数据库服务器
+
+优点:  完全由开发人员控制, 实现灵活, 由程序直接连接数据库, 性能损耗少,
+缺点:  增加了开发工作量, 使程序代码更加复杂, 人为控制容易出错
+</code></pre>
+<h5 id="方式二">方式二</h5>
+<pre><code>- 由数据库中间层(代理层) 来完成  ( 如: mysql proxy、maxscale、one proxy、proxySQL)
+
+优点:  由中间件根据查询语法分析, 自动完成读写分离,  对程序透明,  对已有程序不用做任何调整
+缺点:  查询效率有非常严重的损耗,  对于延迟敏感业务无法自动在主库上执行
+</code></pre>
+<h4 id="读服务器负载均衡方式">读服务器负载均衡方式</h4>
+<ul>
+<li>数据库中间层</li>
+<li>DNS 轮询 (性能较差)</li>
+<li>LVS / Haproxy  (推荐)</li>
+<li>硬件 F5</li>
+</ul>
+<h4 id="分库分表的几种方式">分库分表的几种方式</h4>
+<ul>
+<li>
+<p>把一个实例中的多个数据库拆分到不同的实例
+<img src="https://user-images.githubusercontent.com/16852041/33559540-1b072896-d948-11e7-94ce-a057a21c0e06.png" alt="qq 20171204230829"></p>
+</li>
+<li>
+<p>把一个库中的表分离到不同的数据库中
+<img src="https://user-images.githubusercontent.com/16852041/33559557-2409d5ba-d948-11e7-9bbe-840adf3e2ede.png" alt="2"></p>
+</li>
+<li>
+<p>(慎用!)对一个库中的相关表进行水平拆分到不同实例的数据库中 (数据库分片)
+<img src="https://user-images.githubusercontent.com/16852041/33559770-d64e4e2c-d948-11e7-91a4-b016d9fe88d2.png" alt="3"></p>
+</li>
+</ul>
+<h3 id="备份相关">备份相关</h3>
+<h4 id="逻辑备份和物理备份">逻辑备份和物理备份</h4>
+<ul>
+<li>逻辑备份的结果为 sql 语句, 适合于所有存储引擎</li>
+<li>物理备份是对数据库目录的拷贝, 对于内存表只备份结构</li>
+</ul>
+<h4 id="全量备份和增量备份">全量备份和增量备份</h4>
+<ul>
+<li>全量备份是对整个数据库的一个完整备份</li>
+<li>增量备份是在上次全量或增量备份基础上, 对于更改数据进行的备份</li>
+</ul>
+<h4 id="mysqldump-备份工具">mysqldump 备份工具</h4>
+<h5 id="常用参数说明">常用参数说明</h5>
+<pre><code>-u 用户名
+-p 密码
+-h 备份主机名,默认 localhost
+-P 端口
+--all-databases, -A  备份所有数据库
+--force, -f  即使发现sql错误，仍然继续备份
+--no-data, -d  只导出表结构
+--quick, -q  快速导出
+--events, -E 调度事件
+--triggers 触发器, 该选项默认启用，用--skip-triggers禁用它
+--lock-all-tables, -x  锁住一个实例下所有数据库中的所有表
+--where='condition'   指定过滤条件, 只支持单表数据导出
+--routines, -R 存储过程以及自定义函数
+--xml, -X  导出为xml文件
+
+--lock-tables , -l  
+锁住当前数据库下所有的表, 只允许读操作 一般用于 MyISAM 存储引擎, 对于 INNODB 存储引擎则不需要使用, 当数据库中同时存在 MyISAM 和 INNODB 时, 则使用该项 
+
+--single-transaction 
+启动一个事务, 用于保证数据的一致性, 只对 INNODB 存储引擎有效
+
+--master-data=[1或2] 
+该选项将binlog的位置和文件名追加到输出文件中。如果为1, 将会输出CHANGE MASTER 命令；如果为2, 输出的CHANGE  MASTER命令前添加注释信息, 默认值是1
+
+--hex-blob 
+以16进制导出blob字段数据。同版本下不加此参数一般不会有什么问题，但在不同 MySQL 版本间最好加此参数
+
+--tab=path
+这个选项将会创建两个文件，一个是带分隔符的文本文件，备份的数据表中的每行存储为文本中的一行，以“表名.txt”保存；另一个输出文件为数据表的CREATE TABLE语句，以“表名.sql”保存。
+
+--databases, -B
+用于备份多个数据库，如果没有该选项，mysqldump 把第一个名字参数作为数据库名，后面的作为表名。使用该选项，mysqldump 把每个名字都当作为数据库名。
+
+</code></pre>
+<h4 id="导出">导出</h4>
+<pre><code>#导出数据库为 test 下面表名为 b 的数据
+mysqldump -uroot -h 127.0.0.1  test b &gt; b_bak.sql
+ 
+#导出数据库为 test 的所有数据
+mysqldump -uroot -h 127.0.0.1 test &gt;bak.sql
+ 
+#导出数据库名为test和 test1 的数据库
+mysqldump -uroot -h 127.0.0.1  -B test test1 &gt; /data/bak.sql
+ 
+#导出所有的数据库
+mysqldump -uroot -h 127.0.0.1 -A &gt; /data/all.sql
+ 
+#导出数据库的结构
+mysqldump -uroot -h 127.0.0.1  test b  -d&gt; b_test.sql 
+</code></pre>
+<h4 id="导入">导入</h4>
+<pre><code>#mysql命令行导入
+mysql&gt; source /data/test.sql
+#还原单个数据库（需指定数据库）
+mysql&gt; use test
+mysql&gt; source /data/test.sql
+
+#系统命令行导入
+mysql -uroot -p &lt;/data/test.sql
+#还原多个数据库（不需要指定数据库）
+mysql -uroot -p &lt;/data/all.sql
+</code></pre>
+<h4 id="xtrabackup-备份工具">XtraBackup 备份工具</h4>
+<h5 id="简介">简介</h5>
+<p>xtrabackup是Percona公司CTO Vadim参与开发的一款基于InnoDB的在线热备工具，具有开源、免费、支持在线热备、备份恢复速度快、备份过程中, 不会影响表的读写操作、占用磁盘空间小等特点，并且支持不同情况下的多种备份形式。</p>
+<h5 id="官方下载">官方下载</h5>
+<p><code>https://www.percona.com/downloads/XtraBackup/LATEST/</code></p>
+<h5 id="安装教程">安装教程</h5>
+<p><code>http://www.linuxidc.com/Linux/2017-06/144817.htm</code></p>
+<h4 id="备份脚本">备份脚本</h4>
+<pre><code>#!/bin/bash
+###############Basic parameters##########################
+DAY=`date +%Y%m%d`
+Environment=$(/sbin/ifconfig | grep &quot;inet addr&quot; | head -1 |grep -v &quot;127.0.0.1&quot; | awk '{print $2;}' | awk -F':' '{print $2;}')
+USER=&quot;backup&quot;
+PASSWD=&quot;123456&quot;
+HostPort=&quot;3306&quot;
+MYSQLBASE=&quot;/home/mysql/&quot;
+DATADIR=&quot;/home/db_backup/${DAY}&quot;
+MYSQL=`/usr/bin/which mysql`
+MYSQLDUMP=`/usr/bin/which mysqldump`
+mkdir -p ${DATADIR}
+
+Dump(){
+ ${MYSQLDUMP} --master-data=2 --single-transaction  --routines --triggers --events -u${USER} -p${PASSWD} -P${HostPort} ${database}  &gt; ${DATADIR}/${Environment}-${database}.sql
+ cd ${DATADIR}
+ gzip ${Environment}-${database}.sql
+}
+
+for db in `echo &quot;SELECT schema_name FROM information_schema.schemata where schema_name not in ('information_schema','sys','performance_schema')&quot; | ${MYSQL} -u${USER} -p${PASSWD} --skip-column-names`
+do
+   database=${db}
+   Dump
+done
+</code></pre>
+<h4 id="docker-mysql-备份">docker mysql 备份</h4>
+<pre><code>#备份脚本
+#!/bin/bash
+docker_container_name=mysql_mysql_1
+data_dir=&quot;/data/backups&quot;
+docker exec -it ${docker_container_name} mysqldump -uroot -p**** --all-databases &gt; &quot;$data_dir/data_`date +%Y%m%d`.sql&quot;
+if [ $? -ne 0 ];then
+    # 任务失败，发送邮件
+    echo -e &quot;mysql备份失败&quot; | mail -s '备份任务失败' xxxx@163.com
+    exit -1
+fi
+find $data_dir -mtime +7 -name 'data_[1-9].sql' -exec rm -rf {} \;
+  
+  
+#定时任务
+0 2 * * * sh /sh/mysql-bak.sh &gt; /data/docker/mysql/mysql_bak.log 2&gt;&amp;1
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Docker 学习笔记]]></title>
         <id>https://slowlog.github.io/post/docker-xue-xi-bi-ji</id>
