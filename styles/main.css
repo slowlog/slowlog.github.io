@@ -827,6 +827,7 @@ td {
   -o-background-size: 30px, 30px;
   -webkit-background-size: 30px, 30px;
    background-size: 30px, 30px;
+   border-radius: 4px;
 }
 .post-detail .post .post-content pre code{
    font-size:14px;
