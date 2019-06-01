@@ -780,11 +780,10 @@ td {
       }
     
       .tags-container .tag{
-     border-radius: 4px;
-     font-size: 14px;
+   border-radius: 4px;font-size: 14px;
 }
 .tags-container .tag:hover{
-     color:#44a340; 
+   color:#44a340; 
 }
 .archives-container .post a:hover{
    color:#44a340; 
@@ -810,7 +809,6 @@ td {
     -webkit-background-clip: text;
     background-size: 200% 100%;
     animation: masked-animation 4s infinite linear;
-  
 }
  @keyframes masked-animation {
     0% {
@@ -820,8 +818,6 @@ td {
       background-position: -100% 0;
     }
   }
-
-
 .menu-container a{
    color:#44a340;
 }
