@@ -849,6 +849,7 @@ td {
   background-color: transparent;
   border-radius: 4px;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 1.8;
 }
 
 .post-detail .post .post-feature-image{
