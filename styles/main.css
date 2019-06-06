@@ -789,6 +789,9 @@ td {
 .archives-container .year{
    color:#44a340; 
 }
+.post-detail .post .post-content blockquote{
+      border-left: 2px solid #44a340;
+}
 .post-container .post .post-title{
    font-size:26px;
 }
