@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://www.slowlog.cn</id>
+    <id>https://www.slowlog.cn</id>
     <title>Slowlog</title>
-    <updated>2019-06-06T18:19:19.261Z</updated>
+    <updated>2019-06-06T18:39:33.338Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://www.slowlog.cn"/>
-    <link rel="self" href="http://www.slowlog.cn/atom.xml"/>
+    <link rel="alternate" href="https://www.slowlog.cn"/>
+    <link rel="self" href="https://www.slowlog.cn/atom.xml"/>
     <subtitle>slow life slow log.</subtitle>
-    <logo>http://www.slowlog.cn/images/avatar.png</logo>
-    <icon>http://www.slowlog.cn/favicon.ico</icon>
+    <logo>https://www.slowlog.cn/images/avatar.png</logo>
+    <icon>https://www.slowlog.cn/favicon.ico</icon>
     <rights>All rights reserved 2019, Slowlog</rights>
     <entry>
         <title type="html"><![CDATA[MySQL 学习笔记]]></title>
-        <id>http://www.slowlog.cn/post/mysql-xue-xi-bi-ji</id>
-        <link href="http://www.slowlog.cn/post/mysql-xue-xi-bi-ji">
+        <id>https://www.slowlog.cn/post/mysql-xue-xi-bi-ji</id>
+        <link href="https://www.slowlog.cn/post/mysql-xue-xi-bi-ji">
         </link>
         <updated>2019-06-01T08:28:17.000Z</updated>
         <content type="html"><![CDATA[<h3 id="常用-sql-语句">常用 SQL 语句</h3>
@@ -582,8 +582,8 @@ find $data_dir -mtime +7 -name 'data_[1-9].sql' -exec rm -rf {} \;
     </entry>
     <entry>
         <title type="html"><![CDATA[Nginx 学习笔记]]></title>
-        <id>http://www.slowlog.cn/post/nginx-xue-xi-bi-ji</id>
-        <link href="http://www.slowlog.cn/post/nginx-xue-xi-bi-ji">
+        <id>https://www.slowlog.cn/post/nginx-xue-xi-bi-ji</id>
+        <link href="https://www.slowlog.cn/post/nginx-xue-xi-bi-ji">
         </link>
         <updated>2018-09-15T08:16:09.000Z</updated>
         <content type="html"><![CDATA[<h3 id="nginx-特性">Nginx 特性</h3>
@@ -1031,8 +1031,8 @@ http{
     </entry>
     <entry>
         <title type="html"><![CDATA[Docker 学习笔记]]></title>
-        <id>http://www.slowlog.cn/post/docker-xue-xi-bi-ji</id>
-        <link href="http://www.slowlog.cn/post/docker-xue-xi-bi-ji">
+        <id>https://www.slowlog.cn/post/docker-xue-xi-bi-ji</id>
+        <link href="https://www.slowlog.cn/post/docker-xue-xi-bi-ji">
         </link>
         <updated>2017-11-01T08:27:35.000Z</updated>
         <content type="html"><![CDATA[<h3 id="初识-docker">初识 docker</h3>
@@ -1137,8 +1137,8 @@ RUN apk --update add tzdata \
     </entry>
     <entry>
         <title type="html"><![CDATA[个人书签&收藏]]></title>
-        <id>http://www.slowlog.cn/post/ge-ren-shu-qian-andshou-cang</id>
-        <link href="http://www.slowlog.cn/post/ge-ren-shu-qian-andshou-cang">
+        <id>https://www.slowlog.cn/post/ge-ren-shu-qian-andshou-cang</id>
+        <link href="https://www.slowlog.cn/post/ge-ren-shu-qian-andshou-cang">
         </link>
         <updated>2017-08-01T08:26:22.000Z</updated>
         <content type="html"><![CDATA[<h4 id="0-centos7-上安装-redis">0. <a href="http://www.linuxidc.com/Linux/2017-09/147198.htm">CentOS7 上安装 Redis</a></h4>
@@ -1156,8 +1156,8 @@ RUN apk --update add tzdata \
     </entry>
     <entry>
         <title type="html"><![CDATA[Java 学习笔记]]></title>
-        <id>http://www.slowlog.cn/post/java-xue-xi-bi-ji</id>
-        <link href="http://www.slowlog.cn/post/java-xue-xi-bi-ji">
+        <id>https://www.slowlog.cn/post/java-xue-xi-bi-ji</id>
+        <link href="https://www.slowlog.cn/post/java-xue-xi-bi-ji">
         </link>
         <updated>2017-06-15T08:02:10.000Z</updated>
         <content type="html"><![CDATA[<h3 id="java-简述">Java 简述</h3>
@@ -1537,8 +1537,8 @@ Java 中的方法内部类
     </entry>
     <entry>
         <title type="html"><![CDATA[「计算机是怎样跑起来的」读书笔记]]></title>
-        <id>http://www.slowlog.cn/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji</id>
-        <link href="http://www.slowlog.cn/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji">
+        <id>https://www.slowlog.cn/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji</id>
+        <link href="https://www.slowlog.cn/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji">
         </link>
         <updated>2016-06-05T08:24:45.000Z</updated>
         <content type="html"><![CDATA[<h3 id="计算机的输入-运算-输出">计算机的输入、运算、输出</h3>
@@ -1615,8 +1615,8 @@ Java 中的方法内部类
     </entry>
     <entry>
         <title type="html"><![CDATA[Linux 常用命令]]></title>
-        <id>http://www.slowlog.cn/post/linux-chang-yong-ming-ling</id>
-        <link href="http://www.slowlog.cn/post/linux-chang-yong-ming-ling">
+        <id>https://www.slowlog.cn/post/linux-chang-yong-ming-ling</id>
+        <link href="https://www.slowlog.cn/post/linux-chang-yong-ming-ling">
         </link>
         <updated>2016-03-02T08:29:37.000Z</updated>
         <content type="html"><![CDATA[<h3 id="文件-目录类">文件、目录类</h3>
