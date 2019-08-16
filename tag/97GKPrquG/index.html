@@ -1,16 +1,16 @@
 <html>
   <head>
   <meta charset="utf-8" />
-<meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Linux | Slowlog</title>
-<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1559849312101">
+<title>Linux | slowlog</title>
+<meta name="description" content="slow life slow log." />
+<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1565929530909">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.slowlog.cn/styles/main.css">
 
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -20,10 +20,10 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://www.slowlog.cn">
-  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1559849312101" alt="">
+  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1565929530909" alt="">
   </a>
   <h1 class="site-title">
-    Slowlog
+    slowlog
   </h1>
   <p class="site-description">
     slow life slow log.
@@ -66,7 +66,7 @@
 
         <div class="current-tag-container">
             <h2 class="title">
-                标签：#Linux
+                标签：# Linux
             </h2> 
         </div>
         <div class="post-container">
@@ -76,9 +76,12 @@
         <h2 class="post-title">Nginx 学习笔记</h2>
       </a>
       <div class="post-info">
-        <time class="post-time">
-          · 2018-09-15 ·
-        </time>
+        <span>
+          2018-09-15
+        </span>
+        <span>
+          4 min read
+        </span>
         
           <a href="https://www.slowlog.cn/tag/97GKPrquG" class="post-tag">
             # Linux
@@ -99,9 +102,12 @@
         <h2 class="post-title">Docker 学习笔记</h2>
       </a>
       <div class="post-info">
-        <time class="post-time">
-          · 2017-11-01 ·
-        </time>
+        <span>
+          2017-11-01
+        </span>
+        <span>
+          2 min read
+        </span>
         
           <a href="https://www.slowlog.cn/tag/97GKPrquG" class="post-tag">
             # Linux
@@ -122,9 +128,12 @@
         <h2 class="post-title">Linux 常用命令</h2>
       </a>
       <div class="post-info">
-        <time class="post-time">
-          · 2016-03-02 ·
-        </time>
+        <span>
+          2016-03-02
+        </span>
+        <span>
+          5 min read
+        </span>
         
           <a href="https://www.slowlog.cn/tag/97GKPrquG" class="post-tag">
             # Linux
@@ -148,12 +157,50 @@
 </div>
 
         <div class="site-footer">
-  © 赣ICP备15006422号. Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
   <a class="rss" href="https://www.slowlog.cn/atom.xml" target="_blank">RSS</a>
 </div>
 
 <script>
   hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
 </script>
 
       </div>

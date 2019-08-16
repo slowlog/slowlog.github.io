@@ -1,16 +1,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-<meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Linux 常用命令 | Slowlog</title>
-<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1559849312101">
+<title>Linux 常用命令 | slowlog</title>
+<meta name="description" content="slow life slow log." />
+<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1565929530909">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.slowlog.cn/styles/main.css">
 
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -20,10 +20,10 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://www.slowlog.cn">
-  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1559849312101" alt="">
+  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1565929530909" alt="">
   </a>
   <h1 class="site-title">
-    Slowlog
+    slowlog
   </h1>
   <p class="site-description">
     slow life slow log.
@@ -64,16 +64,18 @@
   </div>
 </div>
 
-
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
               Linux 常用命令
             </h2>
             <div class="post-info">
-              <time class="post-time">
-                · 2016-03-02 ·
-              </time>
+              <span>
+                2016-03-02
+              </span>
+              <span>
+                5 min read
+              </span>
               
                 <a href="https://www.slowlog.cn/tag/97GKPrquG" class="post-tag">
                   # Linux
@@ -81,11 +83,11 @@
               
             </div>
             
-              <div class="post-feature-image" style="background-image: url('https://www.slowlog.cn/post-images/linux-chang-yong-ming-ling.png')">
-              </div>
+              <img class="post-feature-image" src="https://www.slowlog.cn/post-images/linux-chang-yong-ming-ling.png" alt="">
             
-            <div class="post-content">
-              <h3 id="文件-目录类">文件、目录类</h3>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="文件-目录类">文件、目录类</h3>
 <pre><code>cd                     # cd 不加任何参数，返回 home 目录
 cd -                   # 返回上一次所在目录,并显示其目录名
 cd dir                 # 进入到指定目录
@@ -265,6 +267,33 @@ iptables -L -n -v
 
 </code></pre>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%96%87%E4%BB%B6-%E7%9B%AE%E5%BD%95%E7%B1%BB">文件、目录类</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B-%E5%A4%84%E7%90%86">文件查看、处理</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E8%AF%A2-%E6%90%9C%E7%B4%A2">文件查询、搜索</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91-vi-%E5%BA%95%E8%A1%8C%E6%A8%A1%E5%BC%8F%E4%B8%8B">文本编辑 vi 底行模式下</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91-vi-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%8B">文本编辑 vi 命令模式下</a></li>
+<li><a href="#%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86">权限管理</a></li>
+<li><a href="#%E5%8E%8B%E7%BC%A9-%E8%A7%A3%E5%8E%8B">压缩、解压</a></li>
+<li><a href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86">用户管理</a></li>
+<li><a href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86">网络配置管理</a></li>
+<li><a href="#%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5">远程连接</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%E5%B8%AE%E5%8A%A9">查看命令帮助</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4">系统相关命令</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96">其他</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
           </article>
         </div>
@@ -274,12 +303,50 @@ iptables -L -n -v
         
 
         <div class="site-footer">
-  © 赣ICP备15006422号. Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
   <a class="rss" href="https://www.slowlog.cn/atom.xml" target="_blank">RSS</a>
 </div>
 
 <script>
   hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
 </script>
 
       </div>

@@ -1,16 +1,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-<meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MySQL 学习笔记 | Slowlog</title>
-<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1559849312101">
+<title>MySQL 学习笔记 | slowlog</title>
+<meta name="description" content="slow life slow log." />
+<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1565929530909">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.slowlog.cn/styles/main.css">
 
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -20,10 +20,10 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://www.slowlog.cn">
-  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1559849312101" alt="">
+  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1565929530909" alt="">
   </a>
   <h1 class="site-title">
-    Slowlog
+    slowlog
   </h1>
   <p class="site-description">
     slow life slow log.
@@ -64,16 +64,18 @@
   </div>
 </div>
 
-
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
               MySQL 学习笔记
             </h2>
             <div class="post-info">
-              <time class="post-time">
-                · 2019-06-01 ·
-              </time>
+              <span>
+                2019-06-01
+              </span>
+              <span>
+                7 min read
+              </span>
               
                 <a href="https://www.slowlog.cn/tag/dL0iL1yYb" class="post-tag">
                   # MySQL
@@ -81,13 +83,19 @@
               
             </div>
             
-              <div class="post-feature-image" style="background-image: url('https://www.slowlog.cn/post-images/mysql-xue-xi-bi-ji.jpg')">
-              </div>
+              <img class="post-feature-image" src="https://www.slowlog.cn/post-images/mysql-xue-xi-bi-ji.jpg" alt="">
             
-            <div class="post-content">
-              <h3 id="常用-sql-语句">常用 SQL 语句</h3>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="常用-sql-语句">常用 SQL 语句</h3>
 <pre><code>#登陆
 mysql -h host -u username -p
+
+#显示哪些线程正在运行
+SHOW PROCESSLIST;
+
+#显示系统变量信息
+SHOW VARIABLES;
 
 #列出所有数据库、选择数据库、列出所有表
 show databases;
@@ -96,9 +104,6 @@ show tables;
 
 #列出表结构
 desc table_name;
-
-#查看全局变量
-show global variables;
 
 #查看MySQL的字符集
 show variables like'character%';
@@ -121,7 +126,7 @@ GRANT ALL PRIVILEGES ON `db_name`.* TO 'username'@'%';
 - host 指定该用户在哪个主机上可以登陆,如果是本地用户可用localhost, 如果想让该用户可以从任意远程主机登陆,可以使用通配符%.  例: '192.168.1.%'
 - password 该用户的登陆密码,密码可以为空,如果为空则该用户可以不需要密码登陆服务器. 
 
-#更新权限
+#刷新权限
 FLUSH PRIVILEGES;
 
 #列出所有用户
@@ -328,7 +333,7 @@ mysql&gt; CHANGE MASTER TO MASTER_HOST='master_host_ip',
     -&gt; MASTER_AUTO_POSITION = 1
 </code></pre>
 <h4 id="利用-keepalived-实现双主复制-主主复制">利用 keepalived 实现双主复制 (主主复制)</h4>
-<p>虚拟IP (vip)
+<p>虚拟IP (vip)<br>
 就是一个未分配给真实主机的ip,也就是说对外提供服务的主机除了有一个真实ip外还有一个虚拟ip</p>
 <p>如下图所示 :</p>
 <p><img src="https://user-images.githubusercontent.com/16852041/33527743-fc97c38c-d890-11e7-9ded-b7f6ebffdb21.png" alt="qq 20171204011725"></p>
@@ -510,15 +515,15 @@ max_connections (控制允许的最大连接数)
 <h4 id="分库分表的几种方式">分库分表的几种方式</h4>
 <ul>
 <li>
-<p>把一个实例中的多个数据库拆分到不同的实例
+<p>把一个实例中的多个数据库拆分到不同的实例<br>
 <img src="https://user-images.githubusercontent.com/16852041/33559540-1b072896-d948-11e7-94ce-a057a21c0e06.png" alt="qq 20171204230829"></p>
 </li>
 <li>
-<p>把一个库中的表分离到不同的数据库中
+<p>把一个库中的表分离到不同的数据库中<br>
 <img src="https://user-images.githubusercontent.com/16852041/33559557-2409d5ba-d948-11e7-9bbe-840adf3e2ede.png" alt="2"></p>
 </li>
 <li>
-<p>(慎用!)对一个库中的相关表进行水平拆分到不同实例的数据库中 (数据库分片)
+<p>(慎用!)对一个库中的相关表进行水平拆分到不同实例的数据库中 (数据库分片)<br>
 <img src="https://user-images.githubusercontent.com/16852041/33559770-d64e4e2c-d948-11e7-91a4-b016d9fe88d2.png" alt="3"></p>
 </li>
 </ul>
@@ -648,6 +653,80 @@ find $data_dir -mtime +7 -name 'data_[1-9].sql' -exec rm -rf {} \;
 0 2 * * * sh /sh/mysql-bak.sh &gt; /data/docker/mysql/mysql_bak.log 2&gt;&amp;1
 </code></pre>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%B8%B8%E7%94%A8-sql-%E8%AF%AD%E5%8F%A5">常用 SQL 语句</a></li>
+<li><a href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83">命名规范</a></li>
+<li><a href="#%E8%A1%A8%E4%B8%8E%E5%AD%97%E6%AE%B5%E8%A7%84%E8%8C%83">表与字段规范</a></li>
+<li><a href="#%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83">索引使用规范</a></li>
+<li><a href="#%E7%BA%A6%E6%9D%9F%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83">约束设计规范</a></li>
+<li><a href="#sql-%E8%AF%AD%E5%8F%A5%E8%A7%84%E8%8C%83">SQL 语句规范</a></li>
+<li><a href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6">主从复制</a>
+<ul>
+<li><a href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0">工作原理概述</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4">配置步骤</a></li>
+<li><a href="#%E6%96%B9%E5%BC%8F%E4%B8%80-%E5%9F%BA%E4%BA%8E%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%97%A5%E5%BF%97%E7%82%B9">方式一、基于二进制日志点</a></li>
+<li><a href="#%E6%96%B9%E5%BC%8F%E4%BA%8C-%E5%9F%BA%E4%BA%8Egtid-%E5%85%A8%E5%B1%80%E4%BA%8B%E5%8A%A1id">方式二、基于GTID (全局事务ID)</a></li>
+<li><a href="#%E5%88%A9%E7%94%A8-keepalived-%E5%AE%9E%E7%8E%B0%E5%8F%8C%E4%B8%BB%E5%A4%8D%E5%88%B6-%E4%B8%BB%E4%B8%BB%E5%A4%8D%E5%88%B6">利用 keepalived 实现双主复制 (主主复制)</a></li>
+<li><a href="#%E4%B8%BB%E4%B8%BB%E5%A4%8D%E5%88%B6%E9%85%8D%E7%BD%AE%E5%8F%98%E6%9B%B4">主主复制配置变更</a></li>
+<li><a href="#keepalived-%E5%AE%89%E8%A3%85-%E4%B8%BB%E5%92%8C%E4%B8%BB%E5%A4%87%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%BD%E8%A6%81%E5%AE%89%E8%A3%85">keepalived 安装 (主和主备服务器都要安装)</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">性能优化</a>
+<ul>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A1%AC%E4%BB%B6%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%80%89%E6%8B%A9">服务器硬件和系统的选择</a></li>
+<li><a href="#centos-%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96">CentOS 系统参数优化</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E5%92%8C%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE">数据库存储引擎和参数配置</a>
+<ul>
+<li><a href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">常用的存储引擎</a></li>
+</ul>
+</li>
+<li><a href="#mysql-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE">MySQL 参数配置</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8Csql%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BC%98%E5%8C%96-%E9%87%8D%E7%82%B9">数据库表结构设计和SQL语句的优化 (重点)</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB">如何实现读写分离</a>
+<ul>
+<li><a href="#%E6%96%B9%E5%BC%8F%E4%B8%80">方式一</a></li>
+<li><a href="#%E6%96%B9%E5%BC%8F%E4%BA%8C">方式二</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AF%BB%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%96%B9%E5%BC%8F">读服务器负载均衡方式</a></li>
+<li><a href="#%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F">分库分表的几种方式</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%87%E4%BB%BD%E7%9B%B8%E5%85%B3">备份相关</a>
+<ul>
+<li><a href="#%E9%80%BB%E8%BE%91%E5%A4%87%E4%BB%BD%E5%92%8C%E7%89%A9%E7%90%86%E5%A4%87%E4%BB%BD">逻辑备份和物理备份</a></li>
+<li><a href="#%E5%85%A8%E9%87%8F%E5%A4%87%E4%BB%BD%E5%92%8C%E5%A2%9E%E9%87%8F%E5%A4%87%E4%BB%BD">全量备份和增量备份</a></li>
+<li><a href="#mysqldump-%E5%A4%87%E4%BB%BD%E5%B7%A5%E5%85%B7">mysqldump 备份工具</a>
+<ul>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E">常用参数说明</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AF%BC%E5%87%BA">导出</a></li>
+<li><a href="#%E5%AF%BC%E5%85%A5">导入</a></li>
+<li><a href="#xtrabackup-%E5%A4%87%E4%BB%BD%E5%B7%A5%E5%85%B7">XtraBackup 备份工具</a>
+<ul>
+<li><a href="#%E7%AE%80%E4%BB%8B">简介</a></li>
+<li><a href="#%E5%AE%98%E6%96%B9%E4%B8%8B%E8%BD%BD">官方下载</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B">安装教程</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC">备份脚本</a></li>
+<li><a href="#docker-mysql-%E5%A4%87%E4%BB%BD">docker mysql 备份</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
           </article>
         </div>
@@ -666,12 +745,50 @@ find $data_dir -mtime +7 -name 'data_[1-9].sql' -exec rm -rf {} \;
         
 
         <div class="site-footer">
-  © 赣ICP备15006422号. Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
   <a class="rss" href="https://www.slowlog.cn/atom.xml" target="_blank">RSS</a>
 </div>
 
 <script>
   hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
 </script>
 
       </div>
