@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MySQL 学习笔记 | Slowlog</title>
 <meta name="description" content="这个人很懒，还没有填写站点描述！" />
-<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1603534999830">
+<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1603545864136">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.slowlog.cn/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://www.slowlog.cn">
-  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1603534999830" alt="">
+  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1603545864136" alt="">
   </a>
   <h1 class="site-title">
     Slowlog
@@ -80,10 +80,10 @@
                 2019-06-01
               </span>
               <span>
-                7 min read
+                22 min read
               </span>
               
-                <a href="https://www.slowlog.cn/tag/dL0iL1yYb" class="post-tag">
+                <a href="https://www.slowlog.cn/tag/dL0iL1yYb/" class="post-tag">
                   # MySQL
                 </a>
               
@@ -279,7 +279,7 @@ FROM `destination_table_name`;
 <li>从库的 IO 进程从指定的位置读取主库 binlog 内容存储到从库 Relay Log 日志中</li>
 <li>从库的 SQL 进程读取 Relay Log 日志中内容在从库中重放</li>
 </ol>
-<p><img src="https://user-images.githubusercontent.com/16852041/33526576-a4df45a0-d87e-11e7-903f-fa8794a94384.png" alt="0_1330439010p7li"></p>
+<figure data-type="image" tabindex="1"><img src="https://user-images.githubusercontent.com/16852041/33526576-a4df45a0-d87e-11e7-903f-fa8794a94384.png" alt="0_1330439010p7li" loading="lazy"></figure>
 <h4 id="配置步骤">配置步骤</h4>
 <h4 id="方式一-基于二进制日志点">方式一、基于二进制日志点</h4>
 <pre><code>1. 配置主从数据库服务器参数
@@ -342,7 +342,7 @@ mysql&gt; CHANGE MASTER TO MASTER_HOST='master_host_ip',
 <p>虚拟IP (vip)<br>
 就是一个未分配给真实主机的ip,也就是说对外提供服务的主机除了有一个真实ip外还有一个虚拟ip</p>
 <p>如下图所示 :</p>
-<p><img src="https://user-images.githubusercontent.com/16852041/33527743-fc97c38c-d890-11e7-9ded-b7f6ebffdb21.png" alt="qq 20171204011725"></p>
+<figure data-type="image" tabindex="2"><img src="https://user-images.githubusercontent.com/16852041/33527743-fc97c38c-d890-11e7-9ded-b7f6ebffdb21.png" alt="qq 20171204011725" loading="lazy"></figure>
 <h4 id="主主复制配置变更">主主复制配置变更</h4>
 <pre><code>#主数据库配置修改 (my.cnf)
 auto_increment_increment=2
@@ -522,15 +522,15 @@ max_connections (控制允许的最大连接数)
 <ul>
 <li>
 <p>把一个实例中的多个数据库拆分到不同的实例<br>
-<img src="https://user-images.githubusercontent.com/16852041/33559540-1b072896-d948-11e7-94ce-a057a21c0e06.png" alt="qq 20171204230829"></p>
+<img src="https://user-images.githubusercontent.com/16852041/33559540-1b072896-d948-11e7-94ce-a057a21c0e06.png" alt="qq 20171204230829" loading="lazy"></p>
 </li>
 <li>
 <p>把一个库中的表分离到不同的数据库中<br>
-<img src="https://user-images.githubusercontent.com/16852041/33559557-2409d5ba-d948-11e7-9bbe-840adf3e2ede.png" alt="2"></p>
+<img src="https://user-images.githubusercontent.com/16852041/33559557-2409d5ba-d948-11e7-9bbe-840adf3e2ede.png" alt="2" loading="lazy"></p>
 </li>
 <li>
 <p>(慎用!)对一个库中的相关表进行水平拆分到不同实例的数据库中 (数据库分片)<br>
-<img src="https://user-images.githubusercontent.com/16852041/33559770-d64e4e2c-d948-11e7-91a4-b016d9fe88d2.png" alt="3"></p>
+<img src="https://user-images.githubusercontent.com/16852041/33559770-d64e4e2c-d948-11e7-91a4-b016d9fe88d2.png" alt="3" loading="lazy"></p>
 </li>
 </ul>
 <h3 id="备份相关">备份相关</h3>
@@ -740,7 +740,7 @@ find $data_dir -mtime +7 -name 'data_[1-9].sql' -exec rm -rf {} \;
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://www.slowlog.cn/post/nginx-xue-xi-bi-ji">
+            <a href="https://www.slowlog.cn/post/nginx-xue-xi-bi-ji/">
               <h3 class="post-title">
                 Nginx 学习笔记
               </h3>

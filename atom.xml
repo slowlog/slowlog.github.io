@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.slowlog.cn</id>
     <title>Slowlog</title>
-    <updated>2020-10-24T10:23:21.498Z</updated>
+    <updated>2020-10-24T13:25:18.470Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.slowlog.cn"/>
     <link rel="self" href="https://www.slowlog.cn/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, Slowlog</rights>
     <entry>
         <title type="html"><![CDATA[MySQL 学习笔记]]></title>
-        <id>https://www.slowlog.cn/post/mysql-xue-xi-bi-ji</id>
-        <link href="https://www.slowlog.cn/post/mysql-xue-xi-bi-ji">
+        <id>https://www.slowlog.cn/post/mysql-xue-xi-bi-ji/</id>
+        <link href="https://www.slowlog.cn/post/mysql-xue-xi-bi-ji/">
         </link>
         <updated>2019-06-01T08:28:17.000Z</updated>
         <content type="html"><![CDATA[<h3 id="常用-sql-语句">常用 SQL 语句</h3>
@@ -202,7 +202,7 @@ FROM `destination_table_name`;
 <li>从库的 IO 进程从指定的位置读取主库 binlog 内容存储到从库 Relay Log 日志中</li>
 <li>从库的 SQL 进程读取 Relay Log 日志中内容在从库中重放</li>
 </ol>
-<p><img src="https://user-images.githubusercontent.com/16852041/33526576-a4df45a0-d87e-11e7-903f-fa8794a94384.png" alt="0_1330439010p7li"></p>
+<figure data-type="image" tabindex="1"><img src="https://user-images.githubusercontent.com/16852041/33526576-a4df45a0-d87e-11e7-903f-fa8794a94384.png" alt="0_1330439010p7li" loading="lazy"></figure>
 <h4 id="配置步骤">配置步骤</h4>
 <h4 id="方式一-基于二进制日志点">方式一、基于二进制日志点</h4>
 <pre><code>1. 配置主从数据库服务器参数
@@ -265,7 +265,7 @@ mysql&gt; CHANGE MASTER TO MASTER_HOST='master_host_ip',
 <p>虚拟IP (vip)<br>
 就是一个未分配给真实主机的ip,也就是说对外提供服务的主机除了有一个真实ip外还有一个虚拟ip</p>
 <p>如下图所示 :</p>
-<p><img src="https://user-images.githubusercontent.com/16852041/33527743-fc97c38c-d890-11e7-9ded-b7f6ebffdb21.png" alt="qq 20171204011725"></p>
+<figure data-type="image" tabindex="2"><img src="https://user-images.githubusercontent.com/16852041/33527743-fc97c38c-d890-11e7-9ded-b7f6ebffdb21.png" alt="qq 20171204011725" loading="lazy"></figure>
 <h4 id="主主复制配置变更">主主复制配置变更</h4>
 <pre><code>#主数据库配置修改 (my.cnf)
 auto_increment_increment=2
@@ -445,15 +445,15 @@ max_connections (控制允许的最大连接数)
 <ul>
 <li>
 <p>把一个实例中的多个数据库拆分到不同的实例<br>
-<img src="https://user-images.githubusercontent.com/16852041/33559540-1b072896-d948-11e7-94ce-a057a21c0e06.png" alt="qq 20171204230829"></p>
+<img src="https://user-images.githubusercontent.com/16852041/33559540-1b072896-d948-11e7-94ce-a057a21c0e06.png" alt="qq 20171204230829" loading="lazy"></p>
 </li>
 <li>
 <p>把一个库中的表分离到不同的数据库中<br>
-<img src="https://user-images.githubusercontent.com/16852041/33559557-2409d5ba-d948-11e7-9bbe-840adf3e2ede.png" alt="2"></p>
+<img src="https://user-images.githubusercontent.com/16852041/33559557-2409d5ba-d948-11e7-9bbe-840adf3e2ede.png" alt="2" loading="lazy"></p>
 </li>
 <li>
 <p>(慎用!)对一个库中的相关表进行水平拆分到不同实例的数据库中 (数据库分片)<br>
-<img src="https://user-images.githubusercontent.com/16852041/33559770-d64e4e2c-d948-11e7-91a4-b016d9fe88d2.png" alt="3"></p>
+<img src="https://user-images.githubusercontent.com/16852041/33559770-d64e4e2c-d948-11e7-91a4-b016d9fe88d2.png" alt="3" loading="lazy"></p>
 </li>
 </ul>
 <h3 id="备份相关">备份相关</h3>
@@ -585,8 +585,8 @@ find $data_dir -mtime +7 -name 'data_[1-9].sql' -exec rm -rf {} \;
     </entry>
     <entry>
         <title type="html"><![CDATA[Nginx 学习笔记]]></title>
-        <id>https://www.slowlog.cn/post/nginx-xue-xi-bi-ji</id>
-        <link href="https://www.slowlog.cn/post/nginx-xue-xi-bi-ji">
+        <id>https://www.slowlog.cn/post/nginx-xue-xi-bi-ji/</id>
+        <link href="https://www.slowlog.cn/post/nginx-xue-xi-bi-ji/">
         </link>
         <updated>2018-09-15T08:16:09.000Z</updated>
         <content type="html"><![CDATA[<h3 id="nginx-特性">Nginx 特性</h3>
@@ -1034,8 +1034,8 @@ http{
     </entry>
     <entry>
         <title type="html"><![CDATA[Docker 学习笔记]]></title>
-        <id>https://www.slowlog.cn/post/docker-xue-xi-bi-ji</id>
-        <link href="https://www.slowlog.cn/post/docker-xue-xi-bi-ji">
+        <id>https://www.slowlog.cn/post/docker-xue-xi-bi-ji/</id>
+        <link href="https://www.slowlog.cn/post/docker-xue-xi-bi-ji/">
         </link>
         <updated>2017-11-01T08:27:35.000Z</updated>
         <content type="html"><![CDATA[<h3 id="初识-docker">初识 docker</h3>
@@ -1045,7 +1045,7 @@ http{
 <p><strong>开源</strong> docker 容器基于一系列开源标准，运行于所有的主流 Linux 操作系统。</p>
 <p><strong>安全</strong> 容器间的应用相互隔离，底层基础设施为其提供了一层额外保护。</p>
 <h3 id="部署流程">部署流程</h3>
-<p><img src="https://user-images.githubusercontent.com/16852041/28628145-62dad7c0-7256-11e7-8c4a-bb328bb836cc.png" alt="b5bbc6c76f197902"></p>
+<figure data-type="image" tabindex="1"><img src="https://user-images.githubusercontent.com/16852041/28628145-62dad7c0-7256-11e7-8c4a-bb328bb836cc.png" alt="b5bbc6c76f197902" loading="lazy"></figure>
 <h3 id="docker-的安装">docker 的安装</h3>
 <pre><code>1. 安装必要的一些系统工具
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
@@ -1140,8 +1140,8 @@ RUN apk --update add tzdata \
     </entry>
     <entry>
         <title type="html"><![CDATA[个人书签&收藏]]></title>
-        <id>https://www.slowlog.cn/post/ge-ren-shu-qian-andshou-cang</id>
-        <link href="https://www.slowlog.cn/post/ge-ren-shu-qian-andshou-cang">
+        <id>https://www.slowlog.cn/post/ge-ren-shu-qian-andshou-cang/</id>
+        <link href="https://www.slowlog.cn/post/ge-ren-shu-qian-andshou-cang/">
         </link>
         <updated>2017-08-01T08:26:22.000Z</updated>
         <content type="html"><![CDATA[<h4 id="0-centos7-上安装-redis">0. <a href="http://www.linuxidc.com/Linux/2017-09/147198.htm">CentOS7 上安装 Redis</a></h4>
@@ -1160,8 +1160,8 @@ RUN apk --update add tzdata \
     </entry>
     <entry>
         <title type="html"><![CDATA[Java 学习笔记]]></title>
-        <id>https://www.slowlog.cn/post/java-xue-xi-bi-ji</id>
-        <link href="https://www.slowlog.cn/post/java-xue-xi-bi-ji">
+        <id>https://www.slowlog.cn/post/java-xue-xi-bi-ji/</id>
+        <link href="https://www.slowlog.cn/post/java-xue-xi-bi-ji/">
         </link>
         <updated>2017-06-15T08:02:10.000Z</updated>
         <content type="html"><![CDATA[<h3 id="java-简述">Java 简述</h3>
@@ -1541,8 +1541,8 @@ Java 中的方法内部类
     </entry>
     <entry>
         <title type="html"><![CDATA[「计算机是怎样跑起来的」读书笔记]]></title>
-        <id>https://www.slowlog.cn/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji</id>
-        <link href="https://www.slowlog.cn/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji">
+        <id>https://www.slowlog.cn/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji/</id>
+        <link href="https://www.slowlog.cn/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji/">
         </link>
         <updated>2016-06-05T08:24:45.000Z</updated>
         <content type="html"><![CDATA[<h3 id="计算机的输入-运算-输出">计算机的输入、运算、输出</h3>
@@ -1567,9 +1567,9 @@ Java 中的方法内部类
 <p>对计算机来说什么都是数字。用数字表示所有信息，这就是一个很具代表性的计算机式的处理方式，这一点正是和人类的思维习惯不一样的地方。例如，人们会用”蓝色“”红色“之类的词语描述有关的颜色信息。可是换做计算机的话，就不得不用数字表示颜色信息。</p>
 <p>例如：用”0,0,255“表示蓝色，用”255,0,0“表示红色，用”255,0,255“表示由蓝色和红色混合而成的紫色。不光是颜色，计算机对文字的处理也是如此。计算机内部会先把文字转换成相应的数字再做处理，这样的数字叫做”字符编码“。总之，计算机会什么都用数字来表示。</p>
 <h3 id="程序的流程分为三种">程序的流程分为三种</h3>
-<p><img src="https://user-images.githubusercontent.com/16852041/38287659-66b0a2f8-37fe-11e8-9f11-28f62e538040.png" alt="default"><br>
-<img src="https://user-images.githubusercontent.com/16852041/38287664-6dbb0d54-37fe-11e8-9425-73e2dddc6d04.png" alt="default"><br>
-<img src="https://user-images.githubusercontent.com/16852041/38303396-89f2e2f0-3838-11e8-9d7e-012183a6736f.png" alt="wx20180404-184523"></p>
+<p><img src="https://user-images.githubusercontent.com/16852041/38287659-66b0a2f8-37fe-11e8-9f11-28f62e538040.png" alt="default" loading="lazy"><br>
+<img src="https://user-images.githubusercontent.com/16852041/38287664-6dbb0d54-37fe-11e8-9425-73e2dddc6d04.png" alt="default" loading="lazy"><br>
+<img src="https://user-images.githubusercontent.com/16852041/38303396-89f2e2f0-3838-11e8-9d7e-012183a6736f.png" alt="wx20180404-184523" loading="lazy"></p>
 <ul>
 <li>顺序执行是按照指令记录在内存中的先后顺序依次执行的一种流程。</li>
 <li>而循环则是在程序的特定范围内反复执行若干次的一种流程。</li>
@@ -1582,15 +1582,15 @@ Java 中的方法内部类
 <li>观点1：面向对象编程通过把组件拼装到一起构建程序</li>
 <li>观点2：面向对象编程能够提升程序的开发效率和可维护性</li>
 </ul>
-<p><img src="https://user-images.githubusercontent.com/16852041/38287879-d102061e-37ff-11e8-8b74-049d11e37756.png" alt="wx20180404-120028"></p>
+<figure data-type="image" tabindex="1"><img src="https://user-images.githubusercontent.com/16852041/38287879-d102061e-37ff-11e8-8b74-049d11e37756.png" alt="wx20180404-120028" loading="lazy"></figure>
 <ul>
 <li>观点3：面向对象编程就是在为现实世界建模</li>
 </ul>
 <p>程序可以在计算机上实现现实世界中的业务和娱乐活动。计算机 本身并没有特定的用途，而是程序赋予了计算机各种各样的用途。在面向对象编程中，可以通过“这个是由什么样的对象构成的呢?”这样的观点来分析即将转换成程序的现实世界。这种分析过程叫作“建模”。 可以说建模对于开发者而言，反映的是他们的世界观，也就是在他们的眼中现实世界看起来是什么样子的。<br>
-<img src="https://user-images.githubusercontent.com/16852041/38287893-e43ebe84-37ff-11e8-9409-5bc5bed1026d.png" alt="wx20180404-114525"></p>
+<img src="https://user-images.githubusercontent.com/16852041/38287893-e43ebe84-37ff-11e8-9409-5bc5bed1026d.png" alt="wx20180404-114525" loading="lazy"></p>
 <ul>
 <li>观点4：面向对象编程可以借助 UML 设计程序<br>
-<img src="https://user-images.githubusercontent.com/16852041/38287897-ea38aca0-37ff-11e8-8ad1-df612f347cce.png" alt="wx20180404-115909"></li>
+<img src="https://user-images.githubusercontent.com/16852041/38287897-ea38aca0-37ff-11e8-8ad1-df612f347cce.png" alt="wx20180404-115909" loading="lazy"></li>
 </ul>
 <p>面向对象软件开发的一个基本方法就是抽象，到底什么是抽象呢?<br>
 抽象是从众多的事物中抽取出共同的、本质性的特征，而舍弃其非本质的特征。<br>
@@ -1619,8 +1619,8 @@ Java 中的方法内部类
     </entry>
     <entry>
         <title type="html"><![CDATA[Linux 常用命令]]></title>
-        <id>https://www.slowlog.cn/post/linux-chang-yong-ming-ling</id>
-        <link href="https://www.slowlog.cn/post/linux-chang-yong-ming-ling">
+        <id>https://www.slowlog.cn/post/linux-chang-yong-ming-ling/</id>
+        <link href="https://www.slowlog.cn/post/linux-chang-yong-ming-ling/">
         </link>
         <updated>2016-03-02T08:29:37.000Z</updated>
         <content type="html"><![CDATA[<h3 id="文件-目录类">文件、目录类</h3>
