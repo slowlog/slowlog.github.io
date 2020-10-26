@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>个人书签&amp;收藏 | Slowlog</title>
+<title>Nginx access_log 条件过滤 | Slowlog</title>
 <meta name="description" content="这个人很懒，还没有填写站点描述！" />
 <link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1603704555217">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/css/all.min.css"  crossorigin="anonymous">
@@ -73,62 +73,45 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              个人书签&amp;收藏
+              Nginx access_log 条件过滤
             </h2>
             <div class="post-info">
               <span>
-                2017-08-01
+                2020-10-26
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://www.slowlog.cn/tag/CqawtMI22/" class="post-tag">
-                  # Other
-                </a>
-              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h4 id="0-centos7-上安装-redis">0. <a href="http://www.linuxidc.com/Linux/2017-09/147198.htm">CentOS7 上安装 Redis</a></h4>
-<h4 id="1-centos7-上部署-rsync-服务">1. <a href="https://www.linuxidc.com/Linux/2017-10/147900.htm">CentOS7 上部署 Rsync 服务</a></h4>
-<h4 id="2-linux-目录结构详细介绍">2. <a href="http://yangrong.blog.51cto.com/6945369/1288072">Linux 目录结构详细介绍</a></h4>
-<h4 id="3-gitlab-搭建与维护基于-docker">3. <a href="http://www.linuxidc.com/Linux/2016-05/131886.htm">GitLab 搭建与维护(基于 docker)</a></h4>
-<h4 id="4-gulp-详细入门教程">4. <a href="http://www.ydcss.com/archives/18/comment-page-5">Gulp 详细入门教程</a></h4>
-<h4 id="5-跨域资源共享-cors-详解">5. <a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解</a></h4>
-<h4 id="6-webpack入门">6. <a href="https://segmentfault.com/a/1190000006178770">Webpack入门</a></h4>
-<h4 id="7-react-学习资源汇总">7. <a href="http://www.imooc.com/article/14902">React 学习资源汇总</a></h4>
-<h4 id="8-docker-入门">8. <a href="https://segmentfault.com/a/1190000009544565">Docker 入门</a></h4>
-<h4 id="9-react-入门">9. <a href="https://segmentfault.com/a/1190000012921279">React 入门</a></h4>
-<h4 id="10-30-分钟快速入门-docker-教程">10. <a href="https://mp.weixin.qq.com/s/DY3pLat1ehudP624Io73Hg">30 分钟快速入门 Docker 教程</a></h4>
-<h4 id="11有哪些值得关注的技术博客">11.<a href="https://zhuanlan.zhihu.com/p/22423268">有哪些值得关注的技术博客</a></h4>
+                <h2 id="按-ip-正则过滤">按 IP 正则过滤</h2>
+<pre><code>在http{} 加入
+//tips： nginx版本 &gt;= 1.7.0，1:true  0:false
+map $http_x_forwarded_for $iploggable{
+   default 1;
+   ~^47.107.15.238 0;
+}
+
+access_log  /usr/local/logs/nginx/nginx_access.log  main if=$iploggable;
+
+</code></pre>
+<h2 id="按-request-过滤">按 Request 过滤</h2>
+<pre><code>在server{} 加入
+location ~* ^.+\.(gif|jpg|png|css|js|map|woff)$ {
+      access_log off;
+} 
+</code></pre>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#0-centos7-%E4%B8%8A%E5%AE%89%E8%A3%85-redis">0. CentOS7 上安装 Redis</a></li>
-<li><a href="#1-centos7-%E4%B8%8A%E9%83%A8%E7%BD%B2-rsync-%E6%9C%8D%E5%8A%A1">1. CentOS7 上部署 Rsync 服务</a></li>
-<li><a href="#2-linux-%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D">2. Linux 目录结构详细介绍</a></li>
-<li><a href="#3-gitlab-%E6%90%AD%E5%BB%BA%E4%B8%8E%E7%BB%B4%E6%8A%A4%E5%9F%BA%E4%BA%8E-docker">3. GitLab 搭建与维护(基于 docker)</a></li>
-<li><a href="#4-gulp-%E8%AF%A6%E7%BB%86%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B">4. Gulp 详细入门教程</a></li>
-<li><a href="#5-%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB-cors-%E8%AF%A6%E8%A7%A3">5. 跨域资源共享 CORS 详解</a></li>
-<li><a href="#6-webpack%E5%85%A5%E9%97%A8">6. Webpack入门</a></li>
-<li><a href="#7-react-%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB">7. React 学习资源汇总</a></li>
-<li><a href="#8-docker-%E5%85%A5%E9%97%A8">8. Docker 入门</a></li>
-<li><a href="#9-react-%E5%85%A5%E9%97%A8">9. React 入门</a></li>
-<li><a href="#10-30-%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-docker-%E6%95%99%E7%A8%8B">10. 30 分钟快速入门 Docker 教程</a></li>
-<li><a href="#11%E6%9C%89%E5%93%AA%E4%BA%9B%E5%80%BC%E5%BE%97%E5%85%B3%E6%B3%A8%E7%9A%84%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2">11.有哪些值得关注的技术博客</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#%E6%8C%89-ip-%E6%AD%A3%E5%88%99%E8%BF%87%E6%BB%A4">按 IP 正则过滤</a></li>
+<li><a href="#%E6%8C%89-request-%E8%BF%87%E6%BB%A4">按 Request 过滤</a></li>
 </ul>
 </li>
 </ul>
@@ -141,9 +124,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://www.slowlog.cn/post/java-xue-xi-bi-ji/">
+            <a href="https://www.slowlog.cn/post/mysql-xue-xi-bi-ji/">
               <h3 class="post-title">
-                Java 学习笔记
+                MySQL 学习笔记
               </h3>
             </a>
           </div>

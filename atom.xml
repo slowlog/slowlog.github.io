@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.slowlog.cn</id>
     <title>Slowlog</title>
-    <updated>2020-10-24T13:50:58.061Z</updated>
+    <updated>2020-10-26T09:29:29.571Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.slowlog.cn"/>
     <link rel="self" href="https://www.slowlog.cn/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://www.slowlog.cn/images/avatar.png</logo>
     <icon>https://www.slowlog.cn/favicon.ico</icon>
     <rights>All rights reserved 2020, Slowlog</rights>
+    <entry>
+        <title type="html"><![CDATA[Nginx access_log 条件过滤]]></title>
+        <id>https://www.slowlog.cn/post/nginx-access_log-tiao-jian-guo-lu/</id>
+        <link href="https://www.slowlog.cn/post/nginx-access_log-tiao-jian-guo-lu/">
+        </link>
+        <updated>2020-10-26T09:15:35.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="按-ip-正则过滤">按 IP 正则过滤</h2>
+<pre><code>在http{} 加入
+//tips： nginx版本 &gt;= 1.7.0，1:true  0:false
+map $http_x_forwarded_for $iploggable{
+   default 1;
+   ~^47.107.15.238 0;
+}
+
+access_log  /usr/local/logs/nginx/nginx_access.log  main if=$iploggable;
+
+</code></pre>
+<h2 id="按-request-过滤">按 Request 过滤</h2>
+<pre><code>在server{} 加入
+location ~* ^.+\.(gif|jpg|png|css|js|map|woff)$ {
+      access_log off;
+} 
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MySQL 学习笔记]]></title>
         <id>https://www.slowlog.cn/post/mysql-xue-xi-bi-ji/</id>
