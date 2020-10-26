@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nginx access_log 条件过滤 | Slowlog</title>
 <meta name="description" content="这个人很懒，还没有填写站点描述！" />
-<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1603704673317">
+<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1603704847015">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/css/all.min.css"  crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.slowlog.cn/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://www.slowlog.cn">
-  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1603704673317" alt="">
+  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1603704847015" alt="">
   </a>
   <h1 class="site-title">
     Slowlog
@@ -88,11 +88,11 @@
             <div class="post-content-wrapper">
               <div class="post-content">
                 <h2 id="按-ip-正则过滤">按 IP 正则过滤</h2>
-<pre><code>//tips： nginx版本 &gt;= 1.7.0，1:true  0:false
+<pre><code>//tips： nginx版本 &gt;= 1.7.0
 
 在http{} 加入
-
 map $http_x_forwarded_for $iploggable{
+    // 1：true  0：false
    default 1;
    ~^47.107.15.238 0;
 }
