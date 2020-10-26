@@ -1,0 +1,572 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Java 学习笔记 | Slowlog</title>
+<meta name="description" content="个人学习笔记" />
+<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1603707492310">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/css/all.min.css"  crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://www.slowlog.cn/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://www.slowlog.cn">
+  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1603707492310" alt="">
+  </a>
+  <h1 class="site-title">
+    Slowlog
+  </h1>
+  <p class="site-description">
+    个人学习笔记
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          全部
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="http://coder.slowlog.cn/" class="menu" target="_blank">
+          常用导航
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/slowlog" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Java 学习笔记
+            </h2>
+            <div class="post-info">
+              <span>
+                2017-06-15
+              </span>
+              <span>
+                19 min read
+              </span>
+              
+                <a href="https://www.slowlog.cn/urLqEf71R/" class="post-tag">
+                  # Java
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="java-简述">Java 简述</h3>
+<ul>
+<li>JRE = JVM + JavaSE标准类库</li>
+<li>JDK = JRE + 开发工具集（例如javac编译工具）</li>
+<li>Java SE = Java标准版</li>
+<li>Java EE = Java企业版</li>
+<li>Java ME = 为移动设备提供了基于Java环境的开发与应用平台</li>
+<li>Java 执行流程 = 源文件(Program.java)-&gt;编译器-&gt;字节码文件(Program.class)-&gt;解释器-&gt;Program</li>
+</ul>
+<h3 id="java-数据类型">Java 数据类型</h3>
+<pre><code>一、基本数据类型：
+byte：Java中最小的数据类型，在内存中占8位(bit)，即1个字节，取值范围-128~127，默认值0
+
+short：短整型，在内存中占16位，即2个字节，取值范围-32768~32717，默认值0
+
+int：整型，用于存储整数，在内在中占32位，即4个字节，取值范围-2147483648~2147483647，默认值0
+
+long：长整型，在内存中占64位，即8个字节-2^63~2^63-1，默认值0L
+
+float：浮点型，在内存中占32位，即4个字节，用于存储带小数点的数字（与double的区别在于float类型有效小数点只有6~7位），默认值0
+
+double：双精度浮点型，用于存储带有小数点的数字，在内存中占64位，即8个字节，默认值0
+
+char：字符型，用于存储单个字符，占16位，即2个字节，取值范围0~65535，默认值为空
+
+boolean：布尔类型，占1个字节，用于判断真或假（仅有两个值，即true、false），默认值false
+
+二、引用数据类型：
+
+类、接口类型、数组类型、枚举类型、注解类型。
+
+区别： 
+基本数据类型是值传递，引用数据类型是引用传递
+
+基本数据类型在被创建时，在栈上给其划分一块内存，将数值直接存储在栈上。
+
+引用数据类型在被创建时，首先要在栈上给其引用（句柄）分配一块内存，而对象的具体信息都存储在堆内存上，然后由栈上面的引用指向堆中对象的地址。
+
+例如，有一个类Person,有属性name,age,带有参的构造方法，
+
+Person p = new Person(&quot;zhangsan&quot;,20);
+
+在内存中的具体创建过程是：
+
+1.首先在栈内存中位其p分配一块空间;
+
+2.在堆内存中为Person对象分配一块空间，并为其三个属性设初值&quot;&quot;，0；
+
+3.根据类Person中对属性的定义，为该对象的两个属性进行赋值操作；
+
+4.调用构造方法，为两个属性赋值为&quot;Tom&quot;,20；（注意这个时候p与Person对象之间还没有建立联系）；
+
+5.将Person对象在堆内存中的地址，赋值给栈中的p;通过引用（句柄）p可以找到堆中对象的具体信息。
+
+相关知识：
+
+静态区： 保存自动全局变量和 static 变量（包括 static 全局和局部变量）。静态区的内容在总个程序的生命周期内都存在，由编译器在编译的时候分配。
+
+堆区：  一般由程序员分配释放，由 malloc 系列函数或 new 操作符分配的内存，其生命周期由 free 或 delete 决定。在没有释放之前一直存在，直到程序结束，由OS释放。其特点是使用灵活，空间比较大，但容易出错
+
+栈区： 由编译器自动分配释放，保存局部变量，栈上的内容只在函数的范围内存在，当函数运行结束，这些内容也会自动被销毁，其特点是效率高，但空间大小有限
+
+</code></pre>
+<h3 id="java-面向对象">Java 面向对象</h3>
+<h3 id="类和对象">类和对象</h3>
+<pre><code>1. 类是抽象的概念, 仅仅是模板, 比如说 : &quot;人&quot;
+2. 类确定对象将会拥有的特征(属性)和行为(方法)
+3. 对象是一个能看得到, 摸得着的具体实物，是类的实例表现
+4. 万物皆对象, 客观存在的事物皆为对象
+5. 属性是对象具有的各种静态特征
+</code></pre>
+<h3 id="类的定义-对象实例化的过程">类的定义、对象实例化的过程</h3>
+<pre><code>1. 类的重要性 : 所有Java程序都以类class为组织单元
+2. 什么是类?
+    类是模子, 确定对象将会拥有的特征(属性)和行为(方法)
+3. 类的组成 : 属性和方法
+4. 定义一个类的步骤 : 
+    a. 定义类名
+    b. 编写类的属性
+    c. 编写类的方法
+</code></pre>
+<pre><code>对象实例化的过程
+1. 声明对象 Person p，在内存的栈区开辟空间
+2. 实例对象 new Person()，在内存的堆区开辟空间
+3. 赋值 Person p = new Person()，将堆空间的地址赋值给栈空间
+</code></pre>
+<h3 id="成员变量和局部变量">成员变量和局部变量</h3>
+<pre><code>1. 成员变量
+      在类中定义, 用来描述对象将要有什么
+      成员变量可以被本类的所有方法使用, 也可以被与本类有关系的其他方法使用
+2. 局部变量
+      在类的方法中定义, 在方法中临时保存数据
+      只能在本方法中使用
+区别 : 
+      1. 作用域不同
+        局部变量的作用域仅限于定义它的方法
+        成员变量的作用域在整个类的内部都是可见的
+      2. 初始值不同
+        Java会给成员变量一个初始值
+        Java不会给局部变量赋予初始值
+      3. 在同一个方法中不允许有同名局部变量
+        在不同的方法中, 可以有同名局部变量
+      4. 两类变量同名时, 局部变量具有更高的优先级
+</code></pre>
+<h3 id="构造方法-静态变量与方法">构造方法、静态变量与方法</h3>
+<pre><code>构造方法
+1. 使用new + 构造方法 创建一个新的对象
+2. 构造方法是定义在Java类中的一个用来初始化对象的方法
+3. 构造方法名与类同名且没有返回值
+4. 无参构造方法：当没有指定构造方法时, 系统会自动添加无参的构造方法
+5. 构造方法的重载：方法名相同, 但参数不同的多个方法, 调用时会自动根据不同的参数选择相应的方法
+</code></pre>
+<pre><code>静态变量与方法
+
+Java 中被 static 修饰的成员称为静态成员或类成员。它属于整个类所有，而不是某个对象所有，即被类的所有对象所共享。
+静态成员可以使用类名直接访问，也可以使用对象名进行访问。当然，鉴于他作用的特殊性更推荐用类名访问~~
+static 可以修饰变量、方法和代码块
+PS : 静态成员属于整个类，当系统第一次使用该类时，就会为其分配内存空间直到该类被卸载才会进行资源回收！~~
+
+1.静态方法中可以直接调用同类中的静态成员，但不能直接调用非静态成员。
+    如果希望在静态方法中调用非静态变量，可以通过创建类的对象，然后通过对象来访问非静态变量。
+2.在普通成员方法中，则可以直接访问同类的非静态变量和静态变量
+3.静态方法中不能直接调用非静态方法，需要通过对象来访问非静态方法。
+</code></pre>
+<h3 id="初始化块代码块">初始化块（代码块）</h3>
+<pre><code>
+代码块：在Java中，使用{}括起来的代码成为代码块
+根据其位置和声明的不同，可以分为
+	局部代码块：局部位置，用于限定变量的生命周期
+	构造代码块：在类中的成员位置，用{}括起来的代码。每次调用构造方法执行前，都会先执行构造代码块。
+		作用：可以把多个构造方法的共同代码放在一起。
+	静态代码块：在类中的成员位置，用{}括起来的代码，只不过它用static修饰
+		作用：一般是对类进行初始化
+	面试题？
+		静态代码块、构造代码块、构造方法的执行顺序？
+		静态-》构造代码块-》构造方法
+		静态代码块：只执行一次
+		构造方法：每次调用构造方法都执行
+ 
+</code></pre>
+<h3 id="封装-继承-多态">封装、继承、多态</h3>
+<pre><code>封装
+1.概念 : 
+  将类的某些信息隐藏在类内部, 不允许外部程序直接访问, 而是通过该类提供的方法来实现对隐藏信息的操作和访问
+2.好处 : 
+  a.只能通过规定的方法访问数据
+  b.隐藏类的实例细节, 方便修改和实现
+3.封装的实现步骤 : 
+  第一步, 修改属性的可见性---设为private
+  第二步, 创建getter/setter方法---用于属性读写
+  第三步, 在getter/setter方法中加入属性控制语句---对属性值的合法性进行判断
+
+</code></pre>
+<pre><code>继承
+1. Java中的继承是单一继承(一个子类只能有一个父类)
+2. 继承是类与类的一种关系, 是一种&quot;A is a B&quot;的关系，例如说：学生是人，狗和猫都是动物 
+3. 继承的好处：子类拥有父类所有的属性和方法，属性和方法的修饰符不能是&quot;private&quot;，实现代码复用，缩短开发周期
+4. 继承的初始化构建顺序：父类静态成员-&gt;子类静态成员-&gt;父类对象构建-&gt;子类对象构建
+
+</code></pre>
+<pre><code>多态
+1. 对象的多种形态，继承是多态的实现基础
+2. 父类的引用可以指向本类或子类的实例(子类的引用不可以指向父类，必须通过强制转换)
+3. 创建本类对象时, 调用的方法为本类的方法或为子类重写的方法或者继承的方法
+</code></pre>
+<h3 id="引用类型转换">引用类型转换</h3>
+<pre><code>1. 向上类型转换(隐式/自动类型转换), 是小类型到大类型的转换
+2. 向下类型转换(强制类型转换), 是大类型到小类型
+   ps : 向上类型转换(无风险), 向下类型转换(有风险)
+3. instanceof运算符, 来解决引用对象的类型, 避免类型转换的安全性问题
+
+</code></pre>
+<h3 id="java中的包package">Java中的包(package)</h3>
+<pre><code>1. 包的作用:
+    管理Java文件
+    解决同名文件冲突
+2. 定义包 : package 包名
+    注 : 必须放在Java源程序的第一行
+          包名可以用&quot;.&quot;号隔开
+3. 系统中的包
+    java.(功能).(类)
+    java.lang.(类)  包含java语言基础的类
+    java.util.(类)  包含java语言中各种工具类
+    java.io.(类)  包含输入,输出相关功能
+4. 包的使用
+    (1),可以通过import关键字, 在某个文件使用其他文件中的类.
+    (2),Java中, 包的命名规范全是小写字母拼写
+    (3),使用的时候不但可以加载某个包下的所有文件, 也可以加载某个具体子包下的所有文件
+
+</code></pre>
+<h3 id="java中的访问修饰符">Java中的访问修饰符</h3>
+<pre><code>访问修饰符 --- 可以修饰属性和方法的访问范围
+访问修饰符  本类  同包  子类  其他
+private     √
+默认         √     √
+protected   √      √    √
+public      √      √    √    √
+
+</code></pre>
+<h3 id="java中的-this-super-final-关键字">Java中的 this、super、final 关键字</h3>
+<pre><code>ps：在构造方法中，this和super是不能同时出现的
+
+this
+1. this关键字代表当前类对象的引用
+2. 通过this关键字可以访问当前类的构造方法，成员属性，成员方法，不能在静态方法中使用
+
+   
+super
+1. super关键字代表父类对象的引用
+2. 通过super关键字可以访问父类的构造方法，成员属性，成员方法，不能在静态方法中使用
+
+final
+1. final关键字，使用final关键字做标识有&quot;最终的&quot;含义
+2. final可以修饰类, 方法, 属性和变量
+   final修饰类, 则该类不允许被继承
+   final修饰方法, 则该方法不允许被覆盖(重写)
+   final修饰属性，则该类的属性不会进行隐式的初始化(类的初始化属性必须有值)，或者在构造方法中赋值(但只能选其一)
+   final修饰变量, 则该变量的值只能赋一次值, 即为常量
+
+</code></pre>
+<h3 id="方法重写与方法重载">方法重写与方法重载</h3>
+<pre><code>重写：
+在满足继承关系的子类中，方法名，参数个数，顺序，返回值与父类相同，访问修饰符的限定范围大于等于父类方法
+
+重载：
+在同一个类中，方法名相同，参数个数，顺序，类型不同，返回值类型，访问修饰符任意
+
+</code></pre>
+<h3 id="object类-抽象类">Object类、抽象类</h3>
+<pre><code>Object类是所有类的父类，每个类都可以使用Object类中定义的方法
+例如：equals()，toString()
+
+</code></pre>
+<pre><code>抽象类
+1. 语法定义 : 
+   抽象类前使用abstract关键字修饰, 则该类为抽象类
+2. 应用场景 : 
+   a.在某些情况下, 某个父类只是知道其子类应该包含怎样的方法, 但无法准确知道这些子类如何实现这些方法
+     也就是说抽象类是约束子类必须有哪些方法, 而并不关注子类是如何实现的
+   b.从多个具有相同特征的类中抽象出一个抽象类, 以这个抽象类作为子类的模板, 从而避免了子类设计的随意性
+3. 作用 : 
+   限制规定子类必须实现某些方法, 但不关注实现细节
+4. 使用规则 : 
+   a. abstract定义抽象类
+   b. abstract定义抽象方法, 只有声明, 不需要实现
+   c. 包含抽象方法的类是抽象类
+   d. 抽象类中可以包含普通方法, 也可以没有抽象方法
+   e. 抽象类不能直接创建, 可以定义引用变量
+
+</code></pre>
+<h3 id="接口">接口</h3>
+<pre><code>1. 接口概念 :  (是一种规范, 是用来约束类的)
+   接口可以理解为一种特殊的类, 由全局常量和公共的抽象方法所组成
+   类是一种具体的实现体, 而接口定义了某一批类所需要遵守的规范, 接口不关心这些类的内部数据, 
+   也不关心这些类里方法的实现细节, 它只规定这些类里必须提供某些方法
+2. 接口定义 
+   和类定义不同, 定义接口不再使用class关键字, 而是使用interface关键字
+接口定义的基本语法 : 
+   [修饰符] (abstract 此关键字肯定有, 如果没有,系统会默认加上) interface 接口名 [extends 父接口1, 父接口2...]
+   {
+     零到多个常量定义...
+     零到多个抽象方法的定义...  
+   }
+   接口就是用来被继承, 被实现的, 修饰符一般建议用public
+   ps : 不能使用private和protected修饰接口
+3. 常量 : 
+   接口中的属性是常量, 即使定义时不添加 public static final 修饰符, 系统也会自动加上
+4. 方法 : 
+   接口中的方法只能是抽象方法, 即使定义时不添加public abstract 修饰符, 系统也会自动加上
+5. 使用接口 : 
+   一个类可以实现一个或者多个接口, 实现接口可以使用implements关键字. Java中的一个类只能继承一个父类,
+   是不够灵活的, 通过实现过个接口可以做补充
+   继承父类实现接口的语法为 : 
+   [修饰符] class 类名 extends 父类 implements 接口1, 接口2...
+   {
+      类体部分  // 如果继承了抽象类, 需要实现继承的抽象方法; 要实现接口中的抽象方法
+   }
+   如果要继承父类, 继承父类必须在实现接口之前
+使用接口 : 
+   接口在使用过程当中, 还经常与匿名内部类配合使用
+   匿名内部类就是没有名字的内部类
+   多用于关注实现而不关注实现类的名称
+
+</code></pre>
+<h3 id="java中的内部类">Java中的内部类</h3>
+<pre><code>1. 概念 : 
+   内部类（ Inner Class ）就是定义在另外一个类里面的类。与之对应，包含内部类的类被称为外部类
+2. 作用 : 
+   1. 内部类提供了更好的封装，可以把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类
+   2. 内部类的方法可以直接访问外部类的所有数据，包括私有的数据
+   3. 内部类所实现的功能使用外部类同样可以实现，只是有时使用内部类更方便
+3. 种类 : 
+   成员内部类
+   静态内部类
+   方法内部类
+   匿名内部类
+PS : 
+   1.外部类是不能直接使用内部类的成员和方法的
+     可先创建内部类的对象，然后通过内部类的对象来访问其成员变量和方法。
+   2.如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法
+     如果要访问外部类的成员变量，可以使用 this 关键字。
+Java 中的静态内部类
+   静态内部类是 static 修饰的内部类，这种内部类的特点是：
+      1.静态内部类不能直接访问外部类的非静态成员，但可以通过new 外部类().成员的方式访问 
+      2.如果外部类的静态成员与内部类的成员名称相同，可通过“类名.静态成员”访问外部类的静态成员；
+        如果外部类的静态成员与内部类的成员名称不相同，则可通过“成员名”直接调用外部类的静态成员
+      3.创建静态内部类的对象时，不需要外部类的对象，可以直接创建 内部类 对象名= new 内部类();
+Java 中的方法内部类
+   方法内部类就是内部类定义在外部类的方法中，方法内部类只在该方法的内部可见，即只在该方法内可以使用。
+   ps : 由于方法内部类不能在外部类的方法以外的地方使用，因此方法内部类不能使用访问控制符和 static 修饰符。
+
+</code></pre>
+<h3 id="设计模式的三大分类">设计模式的三大分类</h3>
+<p>设计模式是基于场景的解决方案</p>
+<pre><code>1. 创建型模式
+
+单例模式：某个类只能有一个实例，提供一个全局的访问点。（恶汉式线程安全，懒汉式存在线程风险）
+
+简单工厂：一个工厂类根据传入的参量决定创建出那一种产品类的实例。
+
+工厂方法：定义一个创建对象的接口，让子类决定实例化那个类。
+
+抽象工厂：创建相关或依赖对象的家族，而无需明确指定具体类。
+
+建造者模式：封装一个复杂对象的构建过程，并可以按步骤构造。
+
+原型模式：通过复制现有的实例来创建新的实例。
+
+
+2. 结构型模式 
+适配器模式：将一个类的方法接口转换成客户希望的另外一个接口。
+
+组合模式：将对象组合成树形结构以表示“”部分-整体“”的层次结构。
+
+装饰模式：动态的给对象添加新的功能。
+
+代理模式：为其他对象提供一个代理以便控制这个对象的访问。
+
+亨元（蝇量）模式：通过共享技术来有效的支持大量细粒度的对象。
+
+外观模式：对外提供一个统一的方法，来访问子系统中的一群接口。
+
+桥接模式：将抽象部分和它的实现部分分离，使它们都可以独立的变化。
+
+
+3. 行为型模式
+模板模式：定义一个算法结构，而将一些步骤延迟到子类实现。
+
+解释器模式：给定一个语言，定义它的文法的一种表示，并定义一个解释器。
+
+策略模式：定义一系列算法，把他们封装起来，并且使它们可以相互替换。
+
+状态模式：允许一个对象在其对象内部状态改变时改变它的行为。
+
+观察者模式：对象间的一对多的依赖关系。
+
+备忘录模式：在不破坏封装的前提下，保持对象的内部状态。
+
+中介者模式：用一个中介对象来封装一系列的对象交互。
+
+命令模式：将命令请求封装为一个对象，使得可以用不同的请求来进行参数化。
+
+访问者模式：在不改变数据结构的前提下，增加作用于一组对象元素的新功能。
+
+责任链模式：将请求的发送者和接收者解耦，使的多个对象都有处理这个请求的机会。
+
+迭代器模式：一种遍历访问聚合对象中各个元素的方法，不暴露该对象的内部结构。
+</code></pre>
+<h3 id="相关资源">相关资源</h3>
+<ul>
+<li><code>http://www.runoob.com/java/java-interfaces.html</code></li>
+<li><code>https://www.cnblogs.com/pony1223/p/7608955.html</code></li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#java-%E7%AE%80%E8%BF%B0">Java 简述</a></li>
+<li><a href="#java-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">Java 数据类型</a></li>
+<li><a href="#java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">Java 面向对象</a></li>
+<li><a href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1">类和对象</a></li>
+<li><a href="#%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89-%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%9A%84%E8%BF%87%E7%A8%8B">类的定义、对象实例化的过程</a></li>
+<li><a href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">成员变量和局部变量</a></li>
+<li><a href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95-%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%B9%E6%B3%95">构造方法、静态变量与方法</a></li>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%9D%97%E4%BB%A3%E7%A0%81%E5%9D%97">初始化块（代码块）</a></li>
+<li><a href="#%E5%B0%81%E8%A3%85-%E7%BB%A7%E6%89%BF-%E5%A4%9A%E6%80%81">封装、继承、多态</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">引用类型转换</a></li>
+<li><a href="#java%E4%B8%AD%E7%9A%84%E5%8C%85package">Java中的包(package)</a></li>
+<li><a href="#java%E4%B8%AD%E7%9A%84%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">Java中的访问修饰符</a></li>
+<li><a href="#java%E4%B8%AD%E7%9A%84-this-super-final-%E5%85%B3%E9%94%AE%E5%AD%97">Java中的 this、super、final 关键字</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99%E4%B8%8E%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD">方法重写与方法重载</a></li>
+<li><a href="#object%E7%B1%BB-%E6%8A%BD%E8%B1%A1%E7%B1%BB">Object类、抽象类</a></li>
+<li><a href="#%E6%8E%A5%E5%8F%A3">接口</a></li>
+<li><a href="#java%E4%B8%AD%E7%9A%84%E5%86%85%E9%83%A8%E7%B1%BB">Java中的内部类</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%89%E5%A4%A7%E5%88%86%E7%B1%BB">设计模式的三大分类</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90">相关资源</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://www.slowlog.cn/lesslessji-dsbj/">
+              <h3 class="post-title">
+                「计算机是怎样跑起来的」读书笔记
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://www.slowlog.cn/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
