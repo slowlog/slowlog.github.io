@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Slowlog</title>
+<title>ssh 保持连接不断开 | Slowlog</title>
 <meta name="description" content="这个人很懒，还没有填写站点描述！" />
 <link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1603705849874">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/css/all.min.css"  crossorigin="anonymous">
@@ -70,188 +70,57 @@
   </div>
 </div>
 
-    
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              ssh 保持连接不断开
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-10-26
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://www.slowlog.cn/tag/97GKPrquG/" class="post-tag">
+                  # Linux
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <pre><code>vim /etc/ssh/sshd_config
+
+修改
+ClientAliveInterval 30
+ClientAliveCountMax 86400
+
+service sshd restart
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://www.slowlog.cn/post/nginx-access_log-tiao-jian-guo-lu/">
+              <h3 class="post-title">
+                Nginx access_log 条件过滤
+              </h3>
+            </a>
+          </div>
         
 
-<div class="archives-container">
-  
-    <h2 class="year">2020</h2>
-    
-      
-        <a href="https://www.slowlog.cn/post/ssh-bao-chi-lian-jie-bu-duan-kai/" class="post">
-          <h2 class="post-title">
-            ssh 保持连接不断开
-          </h2>
-          <div class="time">2020-10-26</div>
-        </a>
-      
-    
-      
-        <a href="https://www.slowlog.cn/post/nginx-access_log-tiao-jian-guo-lu/" class="post">
-          <h2 class="post-title">
-            Nginx access_log 条件过滤
-          </h2>
-          <div class="time">2020-10-26</div>
-        </a>
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    <h2 class="year">2019</h2>
-    
-      
-    
-      
-    
-      
-        <a href="https://www.slowlog.cn/post/mysql-xue-xi-bi-ji/" class="post">
-          <h2 class="post-title">
-            MySQL 学习笔记
-          </h2>
-          <div class="time">2019-06-01</div>
-        </a>
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    <h2 class="year">2018</h2>
-    
-      
-    
-      
-    
-      
-    
-      
-        <a href="https://www.slowlog.cn/post/nginx-xue-xi-bi-ji/" class="post">
-          <h2 class="post-title">
-            Nginx 学习笔记
-          </h2>
-          <div class="time">2018-09-15</div>
-        </a>
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    <h2 class="year">2017</h2>
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        <a href="https://www.slowlog.cn/post/docker-xue-xi-bi-ji/" class="post">
-          <h2 class="post-title">
-            Docker 学习笔记
-          </h2>
-          <div class="time">2017-11-01</div>
-        </a>
-      
-    
-      
-        <a href="https://www.slowlog.cn/post/ge-ren-shu-qian-andshou-cang/" class="post">
-          <h2 class="post-title">
-            个人书签&amp;收藏
-          </h2>
-          <div class="time">2017-08-01</div>
-        </a>
-      
-    
-      
-        <a href="https://www.slowlog.cn/post/java-xue-xi-bi-ji/" class="post">
-          <h2 class="post-title">
-            Java 学习笔记
-          </h2>
-          <div class="time">2017-06-15</div>
-        </a>
-      
-    
-      
-    
-      
-    
-  
-    <h2 class="year">2016</h2>
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        <a href="https://www.slowlog.cn/post/lesslessji-suan-ji-shi-zen-yang-pao-qi-lai-de-greatergreater-du-shu-bi-ji/" class="post">
-          <h2 class="post-title">
-            「计算机是怎样跑起来的」读书笔记
-          </h2>
-          <div class="time">2016-06-05</div>
-        </a>
-      
-    
-      
-        <a href="https://www.slowlog.cn/post/linux-chang-yong-ming-ling/" class="post">
-          <h2 class="post-title">
-            Linux 常用命令
-          </h2>
-          <div class="time">2016-03-02</div>
-        </a>
-      
-    
-  
-</div>
+        
 
-    
-        <div class="pagination-container">
-  
-  
-</div>
-
-    
         <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
   <a class="rss" href="https://www.slowlog.cn/atom.xml" target="_blank">RSS</a>

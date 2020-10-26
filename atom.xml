@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.slowlog.cn</id>
     <title>Slowlog</title>
-    <updated>2020-10-26T09:46:16.052Z</updated>
+    <updated>2020-10-26T09:51:21.321Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.slowlog.cn"/>
     <link rel="self" href="https://www.slowlog.cn/atom.xml"/>
@@ -10,6 +10,22 @@
     <logo>https://www.slowlog.cn/images/avatar.png</logo>
     <icon>https://www.slowlog.cn/favicon.ico</icon>
     <rights>All rights reserved 2020, Slowlog</rights>
+    <entry>
+        <title type="html"><![CDATA[ssh 保持连接不断开]]></title>
+        <id>https://www.slowlog.cn/post/ssh-bao-chi-lian-jie-bu-duan-kai/</id>
+        <link href="https://www.slowlog.cn/post/ssh-bao-chi-lian-jie-bu-duan-kai/">
+        </link>
+        <updated>2020-10-26T09:48:38.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>vim /etc/ssh/sshd_config
+
+修改
+ClientAliveInterval 30
+ClientAliveCountMax 86400
+
+service sshd restart
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Nginx access_log 条件过滤]]></title>
         <id>https://www.slowlog.cn/post/nginx-access_log-tiao-jian-guo-lu/</id>
