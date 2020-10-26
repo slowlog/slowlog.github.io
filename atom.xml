@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.slowlog.cn</id>
     <title>Slowlog</title>
-    <updated>2020-10-26T09:34:11.012Z</updated>
+    <updated>2020-10-26T09:37:40.093Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.slowlog.cn"/>
     <link rel="self" href="https://www.slowlog.cn/atom.xml"/>
@@ -20,13 +20,14 @@
 <pre><code>//tips： nginx版本 &gt;= 1.7.0
 
 在http{} 加入
+           
 map $http_x_forwarded_for $iploggable{
     // 1：true  0：false
    default 1;
    ~^47.107.15.238 0;
 }
 
-access_log  /usr/local/logs/nginx/nginx_access.log  main if=$iploggable;
+access_log  /var/log/nginx_access.log  main if=$iploggable;
 
 </code></pre>
 <h2 id="按-request-过滤">按 Request 过滤</h2>
