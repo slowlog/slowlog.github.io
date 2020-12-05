@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ssh 保持连接不断开 | Slowlog</title>
+<title>PHP7 配置 Yaconf  | Slowlog</title>
 <meta name="description" content="个人学习笔记" />
 <link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1607181150130">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/css/all.min.css"  crossorigin="anonymous">
@@ -77,36 +77,49 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              ssh 保持连接不断开
+              PHP7 配置 Yaconf 
             </h2>
             <div class="post-info">
               <span>
-                2020-10-26
+                2020-12-03
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://www.slowlog.cn/97GKPrquG/" class="post-tag">
-                  # Linux
-                </a>
-              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <pre><code>vim /etc/ssh/sshd_config
-
-修改
-ClientAliveInterval 30
-ClientAliveCountMax 86400
-
-service sshd restart
+                <h3 id="创建yaconf配置文件">创建Yaconf配置文件</h3>
+<pre><code>mkdir -p /etc/yaconf
+echo &quot;MYSQL_USERNAME='root'&quot; &gt; test/yaconf/production.ini
+</code></pre>
+<h3 id="修改phpini">修改php.ini</h3>
+<pre><code>vi /etc/php.ini
+extension=yaconf.so
+yaconf.directory=/etc/yaconf
+</code></pre>
+<h3 id="在php代码中使用">在php代码中使用</h3>
+<pre><code>\Yaconf::get('production.MYSQL_USERNAME')
 </code></pre>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BAyaconf%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">创建Yaconf配置文件</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9phpini">修改php.ini</a></li>
+<li><a href="#%E5%9C%A8php%E4%BB%A3%E7%A0%81%E4%B8%AD%E4%BD%BF%E7%94%A8">在php代码中使用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
@@ -115,9 +128,9 @@ service sshd restart
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://www.slowlog.cn/nginx-access_log-tiao-jian-guo-lu/">
+            <a href="https://www.slowlog.cn/ssh-bao-chi-lian-jie-bu-duan-kai/">
               <h3 class="post-title">
-                Nginx access_log 条件过滤
+                ssh 保持连接不断开
               </h3>
             </a>
           </div>
