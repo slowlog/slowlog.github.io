@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PHP7 配置 Yaconf  | Slowlog</title>
 <meta name="description" content="个人学习笔记" />
-<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1607181281068">
+<link rel="shortcut icon" href="https://www.slowlog.cn/favicon.ico?v=1607181385445">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/css/all.min.css"  crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.slowlog.cn/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://www.slowlog.cn">
-  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1607181281068" alt="">
+  <img class="avatar" src="https://www.slowlog.cn/images/avatar.png?v=1607181385445" alt="">
   </a>
   <h1 class="site-title">
     Slowlog
@@ -93,10 +93,12 @@
               <div class="post-content">
                 <h3 id="创建yaconf配置文件">创建Yaconf配置文件</h3>
 <pre><code>mkdir -p /etc/yaconf
+
 echo &quot;MYSQL_USERNAME='root'&quot; &gt; /etc/yaconf/production.ini
 </code></pre>
 <h3 id="修改phpini">修改php.ini</h3>
-<pre><code>vi /etc/php.ini
+<pre><code>vi /usr/local/php7/etc/php.ini
+
 extension=yaconf.so
 yaconf.directory=/etc/yaconf
 </code></pre>
@@ -130,7 +132,7 @@ yaconf.directory=/etc/yaconf
             <div class="next">下一篇</div>
             <a href="https://www.slowlog.cn/ssh-bao-chi-lian-jie-bu-duan-kai/">
               <h3 class="post-title">
-                ssh 保持连接不断开
+                SSH 保持连接不断开
               </h3>
             </a>
           </div>

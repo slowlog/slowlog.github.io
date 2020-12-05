@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.slowlog.cn</id>
     <title>Slowlog</title>
-    <updated>2020-12-05T15:14:47.753Z</updated>
+    <updated>2020-12-05T15:16:28.911Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.slowlog.cn"/>
     <link rel="self" href="https://www.slowlog.cn/atom.xml"/>
@@ -18,10 +18,12 @@
         <updated>2020-12-03T13:25:40.000Z</updated>
         <content type="html"><![CDATA[<h3 id="创建yaconf配置文件">创建Yaconf配置文件</h3>
 <pre><code>mkdir -p /etc/yaconf
+
 echo &quot;MYSQL_USERNAME='root'&quot; &gt; /etc/yaconf/production.ini
 </code></pre>
 <h3 id="修改phpini">修改php.ini</h3>
-<pre><code>vi /etc/php.ini
+<pre><code>vi /usr/local/php7/etc/php.ini
+
 extension=yaconf.so
 yaconf.directory=/etc/yaconf
 </code></pre>
@@ -31,7 +33,7 @@ yaconf.directory=/etc/yaconf
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[ssh 保持连接不断开]]></title>
+        <title type="html"><![CDATA[SSH 保持连接不断开]]></title>
         <id>https://www.slowlog.cn/ssh-bao-chi-lian-jie-bu-duan-kai/</id>
         <link href="https://www.slowlog.cn/ssh-bao-chi-lian-jie-bu-duan-kai/">
         </link>
